@@ -14,7 +14,9 @@ public class TelaLivrosDeInteresse extends javax.swing.JFrame {
      * Creates new form TelaLivrosDeInteresse
      */
     public TelaLivrosDeInteresse() {
+        super("Livros de interesse");
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

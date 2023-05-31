@@ -14,7 +14,9 @@ public class TelaEmprestimos extends javax.swing.JFrame {
      * Creates new form TelaEmprestimos
      */
     public TelaEmprestimos() {
+        super("Histórico");
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
