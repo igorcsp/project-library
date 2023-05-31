@@ -51,11 +51,6 @@ public class TelaGerenciamentoUsuarios extends javax.swing.JFrame {
         btnModificarGerenc = new javax.swing.JButton();
         btnExcluirGerenc = new javax.swing.JButton();
         btnVoltarGerenc = new javax.swing.JButton();
-        txtTipoGerenc = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
         txtIdGerenc = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableUsuarios = new javax.swing.JTable();
@@ -106,14 +101,6 @@ public class TelaGerenciamentoUsuarios extends javax.swing.JFrame {
             }
         });
 
-        jLabel8.setText("Tipo:");
-
-        jLabel9.setText("2 = Usuário comum");
-
-        jLabel10.setText("3 = Aluno");
-
-        jLabel11.setText("4 = Professor");
-
         txtIdGerenc.setBorder(javax.swing.BorderFactory.createTitledBorder("ID"));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -131,29 +118,17 @@ public class TelaGerenciamentoUsuarios extends javax.swing.JFrame {
                             .addComponent(jLabel4)
                             .addComponent(jLabel5)
                             .addComponent(jLabel6)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel8))
+                            .addComponent(jLabel7))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtNomeGerenc)
-                                    .addComponent(txtCpfGerenc, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtComplementoGerenc)
-                                    .addComponent(txtEnderecoGerenc)
-                                    .addComponent(txtEmailGerenc)
-                                    .addComponent(txtTelefoneGerenc)
-                                    .addComponent(txtSenhaGerenc, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtTipoGerenc))
-                                .addGap(9, 9, 9))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel11)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jLabel10))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtIdGerenc, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(60, 60, 60))))
+                            .addComponent(txtNomeGerenc)
+                            .addComponent(txtCpfGerenc, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtComplementoGerenc)
+                            .addComponent(txtEnderecoGerenc)
+                            .addComponent(txtEmailGerenc)
+                            .addComponent(txtTelefoneGerenc)
+                            .addComponent(txtSenhaGerenc, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(9, 9, 9))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnIncluirGerenc, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -163,6 +138,10 @@ public class TelaGerenciamentoUsuarios extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(btnExcluirGerenc, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap())))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtIdGerenc, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -195,20 +174,9 @@ public class TelaGerenciamentoUsuarios extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtComplementoGerenc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtTipoGerenc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtIdGerenc, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel11)))
-                .addGap(7, 7, 7)
+                .addGap(18, 18, 18)
+                .addComponent(txtIdGerenc, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(btnIncluirGerenc)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -216,7 +184,7 @@ public class TelaGerenciamentoUsuarios extends javax.swing.JFrame {
                     .addComponent(btnExcluirGerenc))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnVoltarGerenc)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         tableUsuarios.setModel(new javax.swing.table.DefaultTableModel(
@@ -251,11 +219,12 @@ public class TelaGerenciamentoUsuarios extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 471, Short.MAX_VALUE))
-                .addContainerGap(15, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1)
+                        .addContainerGap())))
         );
 
         pack();
@@ -263,18 +232,18 @@ public class TelaGerenciamentoUsuarios extends javax.swing.JFrame {
 
     private void btnIncluirGerencActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirGerencActionPerformed
         GerenciamentoUsuarios gu = new GerenciamentoUsuarios();
-        gu.inserirUsuarios(txtCpfGerenc, txtNomeGerenc, txtSenhaGerenc, txtTelefoneGerenc, txtEmailGerenc, txtEnderecoGerenc, txtComplementoGerenc, txtTipoGerenc);
+        gu.inserirUsuarios(txtCpfGerenc, txtNomeGerenc, txtSenhaGerenc, txtTelefoneGerenc, txtEmailGerenc, txtEnderecoGerenc, txtComplementoGerenc);
         gu.mostrarUsuarios(tableUsuarios);
     }//GEN-LAST:event_btnIncluirGerencActionPerformed
 
     private void tableUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableUsuariosMouseClicked
         GerenciamentoUsuarios gu = new GerenciamentoUsuarios();
-        gu.selecionarUsuarios(tableUsuarios, txtIdGerenc, txtCpfGerenc, txtNomeGerenc, txtSenhaGerenc, txtTelefoneGerenc, txtEmailGerenc, txtEnderecoGerenc, txtComplementoGerenc, txtTipoGerenc);
+        gu.selecionarUsuarios(tableUsuarios, txtIdGerenc, txtCpfGerenc, txtNomeGerenc, txtSenhaGerenc, txtTelefoneGerenc, txtEmailGerenc, txtEnderecoGerenc, txtComplementoGerenc);
     }//GEN-LAST:event_tableUsuariosMouseClicked
 
     private void btnModificarGerencActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarGerencActionPerformed
         GerenciamentoUsuarios gu = new GerenciamentoUsuarios();
-        gu.modificarUsuarios(txtCpfGerenc, txtNomeGerenc, txtSenhaGerenc, txtTelefoneGerenc, txtEmailGerenc, txtEnderecoGerenc, txtComplementoGerenc, txtTipoGerenc, txtIdGerenc);
+        gu.modificarUsuarios(txtCpfGerenc, txtNomeGerenc, txtSenhaGerenc, txtTelefoneGerenc, txtEmailGerenc, txtEnderecoGerenc, txtComplementoGerenc);
         gu.mostrarUsuarios(tableUsuarios);
     }//GEN-LAST:event_btnModificarGerencActionPerformed
 
@@ -331,16 +300,12 @@ public class TelaGerenciamentoUsuarios extends javax.swing.JFrame {
     private javax.swing.JButton btnModificarGerenc;
     private javax.swing.JButton btnVoltarGerenc;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tableUsuarios;
@@ -352,6 +317,5 @@ public class TelaGerenciamentoUsuarios extends javax.swing.JFrame {
     private javax.swing.JTextField txtNomeGerenc;
     private javax.swing.JPasswordField txtSenhaGerenc;
     private javax.swing.JTextField txtTelefoneGerenc;
-    private javax.swing.JTextField txtTipoGerenc;
     // End of variables declaration//GEN-END:variables
 }
