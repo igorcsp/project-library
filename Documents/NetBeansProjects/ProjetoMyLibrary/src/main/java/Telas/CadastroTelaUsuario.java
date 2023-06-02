@@ -175,6 +175,13 @@ public class CadastroTelaUsuario extends javax.swing.JFrame {
         Cadastrar cc = new Cadastrar();
         cc.inserirCadastroComum(txtCpfCadastro, txtNomeCadastro, txtSenhaCadastro, txtTelefoneCadastro, txtEmailCadastro, txtEnderecoCadastro, txtComplementoCadastro);
         
+        txtCpfCadastro.setText("");
+        txtNomeCadastro.setText("");
+        txtSenhaCadastro.setText("");
+        txtTelefoneCadastro.setText("");
+        txtEmailCadastro.setText("");
+        txtEnderecoCadastro.setText("");
+        txtComplementoCadastro.setText("");
     }//GEN-LAST:event_btnFinalizarCadastroActionPerformed
 
     private void txtTelefoneCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefoneCadastroActionPerformed
