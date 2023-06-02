@@ -110,7 +110,7 @@ public class UserTelaMenuUsuario extends javax.swing.JFrame {
                 .addComponent(btnEmprestimos)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnLogOut)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         tableConsultaLivros.setModel(new javax.swing.table.DefaultTableModel(
@@ -149,7 +149,7 @@ public class UserTelaMenuUsuario extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         pack();
@@ -176,7 +176,7 @@ public class UserTelaMenuUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnReservarActionPerformed
 
     private void btnIncluirListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirListaActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnIncluirListaActionPerformed
 
     private void tableConsultaLivrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableConsultaLivrosMouseClicked

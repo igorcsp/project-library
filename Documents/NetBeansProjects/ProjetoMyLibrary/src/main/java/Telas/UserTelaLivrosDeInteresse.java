@@ -22,6 +22,7 @@ public class UserTelaLivrosDeInteresse extends javax.swing.JFrame {
         
         GerenciamentoLivrosDeInteresse gli = new GerenciamentoLivrosDeInteresse();
         gli.mostrarLivros(tableLivrosDeInteresse);
+        
     }
 
     /**

@@ -52,8 +52,6 @@ public class GerenciamentoLivrosDeInteresse {
             if (linha >= 0) {
                 paramId.setText(paramTableLivros.getValueAt(linha, 0).toString());
                 paramTitulo.setText(paramTableLivros.getValueAt(linha, 1).toString());
-                
-
             } else {
                 JOptionPane.showMessageDialog(null, "Não selecionou o registro. Erro: ");
             }
@@ -65,9 +63,10 @@ public class GerenciamentoLivrosDeInteresse {
     
     public void inserirLivros(JTextField paramTitulo, JTextField paramAutor) {
         ConnectionFactory objConexao = new ConnectionFactory();
-        String inserir = "INSERT INTO tb_livrosDeInteresse (titulo) VALUES (?)";
+        String inserir = "INSERT INTO tb_livrosDeInteresse%s (titulo) VALUES (?)";
         try {
             CallableStatement cs = objConexao.obterConexao().prepareCall(inserir);
+            
             cs.setString(1, paramTitulo.getText());
             
             
@@ -81,7 +80,7 @@ public class GerenciamentoLivrosDeInteresse {
     
     public void excluirLivros(JTextField paramId) {
         ConnectionFactory objConexao = new ConnectionFactory();
-        String excluir = "DELETE FROM tb_livrosDeInteresse WHERE id=?;";
+        String excluir = "DELETE FROM tb_livrosDeInteresse%s WHERE id=?;";
         try {
             CallableStatement cs = objConexao.obterConexao().prepareCall(excluir);
             cs.setInt(1, Integer.parseInt(paramId.getText()));
