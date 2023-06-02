@@ -71,14 +71,14 @@ public class GerenciamentoLivros {
                 JOptionPane.showMessageDialog(null, "Não selecionou o registro. Erro: ");
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro: " + e.toString());
+            JOptionPane.showMessageDialog(null, "Select Error: " + e.toString());
         }
         
     }
     
     public void inserirLivros(JTextField paramTitulo, JTextField paramAutor) {
         ConnectionFactory objConexao = new ConnectionFactory();
-        String inserir = "INSERT INTO tb_livros (titulo, autor, disponivel, reservado) VALUES (?, ?, 1, 0)";
+        String inserir = "INSERT INTO tb_livros (titulo, autor, disponivel, reservado, emprestado_para) VALUES (?, ?, 1, 0, '')";
         try {
             CallableStatement cs = objConexao.obterConexao().prepareCall(inserir);
             cs.setString(1, paramTitulo.getText());
@@ -89,24 +89,25 @@ public class GerenciamentoLivros {
             JOptionPane.showMessageDialog(null, "Novo registro inserido corretamente!");
             
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro: " + e.toString());
+            JOptionPane.showMessageDialog(null, "Inserir Erro: " + e.toString());
         }
     }
-    public void modificarLivros(JTextField paramTitulo, JTextField paramAutor, JTextField paramDisponivel, JTextField paramEmprestado, JTextField paramId) {
+    public void modificarLivros(JTextField paramTitulo, JTextField paramAutor, JTextField paramDisponivel, JTextField paramReservado, JTextField paramEmprestado, JTextField paramId) {
         ConnectionFactory objConexao = new ConnectionFactory();
-        String modificar = "UPDATE tb_livros SET titulo=?, autor=?, disponivel =?, reservado=? WHERE id = ?;";
+        String modificar = "UPDATE tb_livros SET titulo=?, autor=?, disponivel =?, reservado=?, emprestado_para=? WHERE id = ?;";
         try {
             CallableStatement cs = objConexao.obterConexao().prepareCall(modificar);
             cs.setString(1, paramTitulo.getText());
             cs.setString(2, paramAutor.getText());
             cs.setInt(3, Integer.parseInt(paramDisponivel.getText()));
-            cs.setInt(4, Integer.parseInt(paramEmprestado.getText()));
-            cs.setInt(5, Integer.parseInt(paramId.getText()));
+            cs.setInt(4, Integer.parseInt(paramReservado.getText()));
+            cs.setString(5, paramEmprestado.getText());
+            cs.setInt(6, Integer.parseInt(paramId.getText()));
 
             cs.execute();
             JOptionPane.showMessageDialog(null, "Alterado com sucesso!");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro: " + e.toString());
+            JOptionPane.showMessageDialog(null, "Alterar Erro: " + e.toString());
         }
     }
     
@@ -119,7 +120,7 @@ public class GerenciamentoLivros {
             cs.execute();
             JOptionPane.showMessageDialog(null, "Linha excluída com sucesso!");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro: " + e.toString());
+            JOptionPane.showMessageDialog(null, "Excluir Erro: " + e.toString());
         }
         
     }

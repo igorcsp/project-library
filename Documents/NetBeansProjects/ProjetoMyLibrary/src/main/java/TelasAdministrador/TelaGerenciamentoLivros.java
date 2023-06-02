@@ -230,7 +230,7 @@ public class TelaGerenciamentoLivros extends javax.swing.JFrame {
 
     private void btnModificarLivrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarLivrosActionPerformed
         GerenciamentoLivros gu = new GerenciamentoLivros();
-        gu.modificarLivros(txtTitulo, txtAutor, txtDisponivel, txtEmprestadoPara, txtIdLivro);
+        gu.modificarLivros(txtTitulo, txtAutor, txtDisponivel, txtReservado, txtEmprestadoPara, txtIdLivro);
         gu.mostrarLivros(tableLivros);
     }//GEN-LAST:event_btnModificarLivrosActionPerformed
 

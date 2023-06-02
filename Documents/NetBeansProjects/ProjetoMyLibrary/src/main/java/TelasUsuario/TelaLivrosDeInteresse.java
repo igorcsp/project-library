@@ -4,6 +4,8 @@
  */
 package TelasUsuario;
 
+import Classes.GerenciamentoLivrosDeInteresse;
+
 /**
  *
  * @author Igor
@@ -17,6 +19,9 @@ public class TelaLivrosDeInteresse extends javax.swing.JFrame {
         super("Livros de interesse");
         initComponents();
         this.setLocationRelativeTo(null);
+        GerenciamentoLivrosDeInteresse gli = new GerenciamentoLivrosDeInteresse();
+        gli.mostrarLivros(tableLivrosDeInteresse);
+        
     }
 
     /**
@@ -117,7 +122,8 @@ public class TelaLivrosDeInteresse extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
-        // TODO add your handling code here:
+        GerenciamentoLivrosDeInteresse gli = new GerenciamentoLivrosDeInteresse();
+        //gli.excluirLivros(paramId);
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     /**

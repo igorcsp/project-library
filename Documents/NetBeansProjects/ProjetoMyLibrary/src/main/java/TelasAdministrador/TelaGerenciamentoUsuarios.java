@@ -243,7 +243,7 @@ public class TelaGerenciamentoUsuarios extends javax.swing.JFrame {
 
     private void btnModificarGerencActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarGerencActionPerformed
         GerenciamentoUsuarios gu = new GerenciamentoUsuarios();
-        gu.modificarUsuarios(txtCpfGerenc, txtNomeGerenc, txtSenhaGerenc, txtTelefoneGerenc, txtEmailGerenc, txtEnderecoGerenc, txtComplementoGerenc);
+        gu.modificarUsuarios(txtCpfGerenc, txtNomeGerenc, txtSenhaGerenc, txtTelefoneGerenc, txtEmailGerenc, txtEnderecoGerenc, txtComplementoGerenc, txtIdGerenc);
         gu.mostrarUsuarios(tableUsuarios);
     }//GEN-LAST:event_btnModificarGerencActionPerformed
 

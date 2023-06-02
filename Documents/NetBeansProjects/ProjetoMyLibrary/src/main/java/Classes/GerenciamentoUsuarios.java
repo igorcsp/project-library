@@ -76,7 +76,7 @@ public class GerenciamentoUsuarios {
                 JOptionPane.showMessageDialog(null, "Não selecionou o registro. Erro: ");
             }
         } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, "Erro: " + e.toString());
+            JOptionPane.showMessageDialog(null, "Select Erro: " + e.toString());
         }
         
     }
@@ -97,10 +97,10 @@ public class GerenciamentoUsuarios {
             JOptionPane.showMessageDialog(null, "Novo registro inserido corretamente!");
             
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro: " + e.toString());
+            JOptionPane.showMessageDialog(null, "Incluir Erro: " + e.toString());
         }
     }
-    public void modificarUsuarios(JTextField paramCpf, JTextField paramNome, JPasswordField paramSenha, JTextField paramTelefone, JTextField paramEmail, JTextField paramEndereco, JTextField paramComplemento) {
+    public void modificarUsuarios(JTextField paramCpf, JTextField paramNome, JPasswordField paramSenha, JTextField paramTelefone, JTextField paramEmail, JTextField paramEndereco, JTextField paramComplemento, JTextField paramId) {
         ConnectionFactory objConexao = new ConnectionFactory();
         String modificar = "UPDATE tb_usuarios SET cpf = ?, nome = ?, senha=?, telefone=?, email=?, endereco=?, complemento=? WHERE id = ?;";
         try {
@@ -112,10 +112,11 @@ public class GerenciamentoUsuarios {
             cs.setString(5, paramEmail.getText());
             cs.setString(6, paramEndereco.getText());
             cs.setString(7, paramComplemento.getText());
+            cs.setString(8, paramId.getText());
             cs.execute();
             JOptionPane.showMessageDialog(null, "Alterado com sucesso!");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro: " + e.toString());
+            JOptionPane.showMessageDialog(null, "Alterar Erro: " + e.toString());
         }
     }
     
@@ -128,7 +129,7 @@ public class GerenciamentoUsuarios {
             cs.execute();
             JOptionPane.showMessageDialog(null, "Linha excluída com sucesso!");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro: " + e.toString());
+            JOptionPane.showMessageDialog(null, "Excluir Erro: " + e.toString());
         }
         
     }

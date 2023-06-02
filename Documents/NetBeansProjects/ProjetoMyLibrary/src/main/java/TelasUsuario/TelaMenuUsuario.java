@@ -19,6 +19,7 @@ public class TelaMenuUsuario extends javax.swing.JFrame {
         super("Tela Menu Principal do Usuário");
         initComponents();
         this.setLocationRelativeTo(null);
+        
     }
 
     /**
@@ -37,13 +38,18 @@ public class TelaMenuUsuario extends javax.swing.JFrame {
         btnEmprestimos = new javax.swing.JButton();
         btnIncluirLista = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tableConsultaLivros = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Menu do usuário"));
 
         btnReservar.setText("Reservar");
+        btnReservar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReservarActionPerformed(evt);
+            }
+        });
 
         btnLogOut.setText("Logout");
         btnLogOut.addActionListener(new java.awt.event.ActionListener() {
@@ -59,7 +65,7 @@ public class TelaMenuUsuario extends javax.swing.JFrame {
             }
         });
 
-        btnEmprestimos.setText("Empréstimos");
+        btnEmprestimos.setText("Histórico");
         btnEmprestimos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEmprestimosActionPerformed(evt);
@@ -98,7 +104,7 @@ public class TelaMenuUsuario extends javax.swing.JFrame {
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tableConsultaLivros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -109,7 +115,7 @@ public class TelaMenuUsuario extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tableConsultaLivros);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -150,6 +156,10 @@ public class TelaMenuUsuario extends javax.swing.JFrame {
         ti.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnLivrosDeInteresseActionPerformed
+
+    private void btnReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnReservarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -197,6 +207,6 @@ public class TelaMenuUsuario extends javax.swing.JFrame {
     private javax.swing.JButton btnReservar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tableConsultaLivros;
     // End of variables declaration//GEN-END:variables
 }
