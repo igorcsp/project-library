@@ -1,6 +1,8 @@
 package Classes;
 
+import ConnectionFactory.ConnectionFactory;
 import java.sql.CallableStatement;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
@@ -26,13 +28,12 @@ public class GerenciamentoUsuarios {
         modelo.addColumn("Email");
         modelo.addColumn("Endereço");
         modelo.addColumn("Complemento");
-        modelo.addColumn("Tipo de Usuário");
         
         paramTableUsuarios.setModel(modelo);
         
         sql = "SELECT * FROM tb_usuarios;";
         
-        String [] dados = new String[9];
+        String [] dados = new String[8];
         
         Statement st;
         
@@ -49,7 +50,6 @@ public class GerenciamentoUsuarios {
                 dados[5] = rs.getString(6);
                 dados[6] = rs.getString(7);
                 dados[7] = rs.getString(8);
-                dados[8] = rs.getString(9);
                 
                 modelo.addRow(dados);
             }
@@ -60,7 +60,7 @@ public class GerenciamentoUsuarios {
             JOptionPane.showMessageDialog(null, "Não mostrou o registro. Erro: " + e.toString());
         }
     }
-    public void selecionarUsuarios(JTable paramTableUsuarios, JTextField paramId, JTextField paramCpf, JTextField paramNome, JPasswordField paramSenha, JTextField paramTelefone, JTextField paramEmail, JTextField paramEndereco, JTextField paramComplemento, JTextField paramTipoUsuario) {
+    public void selecionarUsuarios(JTable paramTableUsuarios, JTextField paramId, JTextField paramCpf, JTextField paramNome, JPasswordField paramSenha, JTextField paramTelefone, JTextField paramEmail, JTextField paramEndereco, JTextField paramComplemento) {
         try {
             int linha = paramTableUsuarios.getSelectedRow();
             
@@ -73,18 +73,17 @@ public class GerenciamentoUsuarios {
                 paramEmail.setText(paramTableUsuarios.getValueAt(linha, 5).toString());
                 paramEndereco.setText(paramTableUsuarios.getValueAt(linha, 6).toString());
                 paramComplemento.setText(paramTableUsuarios.getValueAt(linha, 7).toString());
-                paramTipoUsuario.setText(paramTableUsuarios.getValueAt(linha, 8).toString());
             } else {
                 JOptionPane.showMessageDialog(null, "Não selecionou o registro. Erro: ");
             }
         } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, "Erro: " + e.toString());
+            JOptionPane.showMessageDialog(null, "Select Erro: " + e.toString());
         }
         
     }
-    public void inserirUsuarios(JTextField paramCpf, JTextField paramNome, JPasswordField paramSenha, JTextField paramTelefone, JTextField paramEmail, JTextField paramEndereco, JTextField paramComplemento, JTextField paramTipoUsuario) {
+    public void inserirUsuarios(JTextField paramCpf, JTextField paramNome, JPasswordField paramSenha, JTextField paramTelefone, JTextField paramEmail, JTextField paramEndereco, JTextField paramComplemento) {
         ConnectionFactory objConexao = new ConnectionFactory();
-        String inserir = "INSERT INTO tb_usuarios (cpf, nome, senha, telefone, email, endereco, complemento, tipoUsuario) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        String inserir = "INSERT INTO tb_usuarios (cpf, nome, senha, telefone, email, endereco, complemento) VALUES (?, ?, ?, ?, ?, ?, ?)";
         try {
             CallableStatement cs = objConexao.obterConexao().prepareCall(inserir);
             cs.setString(1, paramCpf.getText());
@@ -94,18 +93,17 @@ public class GerenciamentoUsuarios {
             cs.setString(5, paramEmail.getText());
             cs.setString(6, paramEndereco.getText());
             cs.setString(7, paramComplemento.getText());
-            cs.setInt(8, Integer.parseInt(paramTipoUsuario.getText()));
             
             cs.execute();
             JOptionPane.showMessageDialog(null, "Novo registro inserido corretamente!");
             
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro: " + e.toString());
+            JOptionPane.showMessageDialog(null, "Incluir Erro: " + e.toString());
         }
     }
-    public void modificarUsuarios(JTextField paramCpf, JTextField paramNome, JPasswordField paramSenha, JTextField paramTelefone, JTextField paramEmail, JTextField paramEndereco, JTextField paramComplemento, JTextField paramTipoUsuario, JTextField paramId) {
+    public void modificarUsuarios(JTextField paramCpf, JTextField paramNome, JPasswordField paramSenha, JTextField paramTelefone, JTextField paramEmail, JTextField paramEndereco, JTextField paramComplemento, JTextField paramId) {
         ConnectionFactory objConexao = new ConnectionFactory();
-        String modificar = "UPDATE tb_usuarios SET cpf = ?, nome = ?, senha=?, telefone=?, email=?, endereco=?, complemento=?, tipoUsuario=? WHERE id = ?;";
+        String modificar = "UPDATE tb_usuarios SET cpf = ?, nome = ?, senha=?, telefone=?, email=?, endereco=?, complemento=? WHERE id = ?;";
         try {
             CallableStatement cs = objConexao.obterConexao().prepareCall(modificar);
             cs.setString(1, paramCpf.getText());
@@ -115,25 +113,34 @@ public class GerenciamentoUsuarios {
             cs.setString(5, paramEmail.getText());
             cs.setString(6, paramEndereco.getText());
             cs.setString(7, paramComplemento.getText());
-            cs.setInt(8, Integer.parseInt(paramTipoUsuario.getText()));
-            cs.setInt(9, Integer.parseInt(paramId.getText()));
+            cs.setString(8, paramId.getText());
             cs.execute();
             JOptionPane.showMessageDialog(null, "Alterado com sucesso!");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro: " + e.toString());
+            JOptionPane.showMessageDialog(null, "Alterar Erro: " + e.toString());
         }
     }
     
-    public void excluirUsuarios(JTextField paramId) {
+    public void excluirUsuarios(JTextField paramId, JTextField paramCpf) {
         ConnectionFactory objConexao = new ConnectionFactory();
         String excluir = "DELETE FROM tb_usuarios WHERE id=?;";
+        //
+        PreparedStatement ss = null;
+        //
         try {
             CallableStatement cs = objConexao.obterConexao().prepareCall(excluir);
             cs.setInt(1, Integer.parseInt(paramId.getText()));
             cs.execute();
+            
+            //
+            String var = paramCpf.getText();
+            String tabelaNova = String.format("drop table tb_livrosDeInteresse%s;", var);
+            ss = objConexao.obterConexao().prepareStatement(tabelaNova);
+            ss.execute();
+        //
             JOptionPane.showMessageDialog(null, "Linha excluída com sucesso!");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro: " + e.toString());
+            JOptionPane.showMessageDialog(null, "Excluir Erro: " + e.toString());
         }
         
     }

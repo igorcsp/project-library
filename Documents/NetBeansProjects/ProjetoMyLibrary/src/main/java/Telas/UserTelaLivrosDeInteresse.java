@@ -2,19 +2,26 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package TelasUsuario;
+package Telas;
+
+import Classes.GerenciamentoLivrosDeInteresse;
 
 /**
  *
  * @author Igor
  */
-public class TelaLivrosDeInteresse extends javax.swing.JFrame {
+public class UserTelaLivrosDeInteresse extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaLivrosDeInteresse
      */
-    public TelaLivrosDeInteresse() {
+    public UserTelaLivrosDeInteresse() {
+        super("Livros de interesse");
         initComponents();
+        this.setLocationRelativeTo(null);
+        
+        GerenciamentoLivrosDeInteresse gli = new GerenciamentoLivrosDeInteresse();
+        gli.mostrarLivros(tableLivrosDeInteresse);
     }
 
     /**
@@ -30,7 +37,7 @@ public class TelaLivrosDeInteresse extends javax.swing.JFrame {
         btnExcluir = new javax.swing.JButton();
         btnVoltar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tableLivrosDeInteresse = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,7 +57,7 @@ public class TelaLivrosDeInteresse extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tableLivrosDeInteresse.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -61,7 +68,7 @@ public class TelaLivrosDeInteresse extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tableLivrosDeInteresse);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -109,13 +116,13 @@ public class TelaLivrosDeInteresse extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        TelaMenuUsuario tmu = new TelaMenuUsuario();
+        UserTelaMenuUsuario tmu = new UserTelaMenuUsuario();
         tmu.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     /**
@@ -135,20 +142,21 @@ public class TelaLivrosDeInteresse extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaLivrosDeInteresse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UserTelaLivrosDeInteresse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaLivrosDeInteresse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UserTelaLivrosDeInteresse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaLivrosDeInteresse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UserTelaLivrosDeInteresse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaLivrosDeInteresse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UserTelaLivrosDeInteresse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaLivrosDeInteresse().setVisible(true);
+                new UserTelaLivrosDeInteresse().setVisible(true);
             }
         });
     }
@@ -158,6 +166,6 @@ public class TelaLivrosDeInteresse extends javax.swing.JFrame {
     private javax.swing.JButton btnVoltar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tableLivrosDeInteresse;
     // End of variables declaration//GEN-END:variables
 }

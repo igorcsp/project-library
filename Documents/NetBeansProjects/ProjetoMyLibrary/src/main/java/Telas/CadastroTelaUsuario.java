@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package TelasLoginECadastro;
+package Telas;
 
 import Classes.Cadastrar;
 
@@ -10,12 +10,12 @@ import Classes.Cadastrar;
  *
  * @author Igor
  */
-public class TelaCadastroProfessor extends javax.swing.JFrame {
+public class CadastroTelaUsuario extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaCadastro
      */
-    public TelaCadastroProfessor() {
+    public CadastroTelaUsuario() {
         super("Cadastro de usuário");
         initComponents();
         this.setLocationRelativeTo(null);
@@ -100,7 +100,7 @@ public class TelaCadastroProfessor extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(btnFinalizarCadastro, javax.swing.GroupLayout.DEFAULT_SIZE, 325, Short.MAX_VALUE)
                     .addComponent(btnCancelarCadastro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtEnderecoCadastro, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
+                    .addComponent(txtEnderecoCadastro, javax.swing.GroupLayout.DEFAULT_SIZE, 325, Short.MAX_VALUE)
                     .addComponent(txtEmailCadastro)
                     .addComponent(txtSenhaCadastro)
                     .addComponent(txtNomeCadastro)
@@ -128,11 +128,11 @@ public class TelaCadastroProfessor extends javax.swing.JFrame {
                 .addComponent(jLabel7)
                 .addGap(2, 2, 2)
                 .addComponent(txtTelefoneCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(3, 3, 3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtEmailCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
+                .addGap(9, 9, 9)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtEnderecoCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -173,7 +173,7 @@ public class TelaCadastroProfessor extends javax.swing.JFrame {
 
     private void btnFinalizarCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarCadastroActionPerformed
         Cadastrar cc = new Cadastrar();
-        cc.inserirCadastroProfessor(txtCpfCadastro, txtNomeCadastro, txtSenhaCadastro, txtTelefoneCadastro, txtEmailCadastro, txtEnderecoCadastro, txtComplementoCadastro);
+        cc.inserirCadastroComum(txtCpfCadastro, txtNomeCadastro, txtSenhaCadastro, txtTelefoneCadastro, txtEmailCadastro, txtEnderecoCadastro, txtComplementoCadastro);
         
     }//GEN-LAST:event_btnFinalizarCadastroActionPerformed
 
@@ -198,18 +198,14 @@ public class TelaCadastroProfessor extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroTelaUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroTelaUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroTelaUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroTelaUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -218,7 +214,7 @@ public class TelaCadastroProfessor extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaCadastroProfessor().setVisible(true);
+                new CadastroTelaUsuario().setVisible(true);
             }
         });
     }

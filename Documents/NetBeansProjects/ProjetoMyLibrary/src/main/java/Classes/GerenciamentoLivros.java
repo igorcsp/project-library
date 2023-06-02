@@ -1,5 +1,6 @@
 package Classes;
 
+import ConnectionFactory.ConnectionFactory;
 import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -21,13 +22,15 @@ public class GerenciamentoLivros {
         modelo.addColumn("Título");
         modelo.addColumn("Autor");
         modelo.addColumn("Disponível");
+        modelo.addColumn("Reservado");
+        modelo.addColumn("Emprestado para");
         
         
         paramTableLivros.setModel(modelo);
         
         sql = "SELECT * FROM tb_livros;";
         
-        String [] dados = new String[4];
+        String [] dados = new String[6];
         
         Statement st;
         
@@ -40,6 +43,8 @@ public class GerenciamentoLivros {
                 dados[1] = rs.getString(2);
                 dados[2] = rs.getString(3);
                 dados[3] = rs.getString(4);
+                dados[4] = rs.getString(5);
+                dados[5] = rs.getString(6);
                 modelo.addRow(dados);
             }
             
@@ -49,7 +54,7 @@ public class GerenciamentoLivros {
             JOptionPane.showMessageDialog(null, "Não mostrou o registro. Erro: " + e.toString());
         }
     }
-    public void selecionarLivros(JTable paramTableLivros, JTextField paramId, JTextField paramTitulo, JTextField paramAutor, JTextField paramDisponivel) {
+    public void selecionarLivros(JTable paramTableLivros, JTextField paramId, JTextField paramTitulo, JTextField paramAutor, JTextField paramDisponivel, JTextField paramReservado, JTextField paramEmprestadoPara) {
         try {
             int linha = paramTableLivros.getSelectedRow();
             
@@ -58,46 +63,51 @@ public class GerenciamentoLivros {
                 paramTitulo.setText(paramTableLivros.getValueAt(linha, 1).toString());
                 paramAutor.setText(paramTableLivros.getValueAt(linha, 2).toString());
                 paramDisponivel.setText(paramTableLivros.getValueAt(linha, 3).toString());
+                paramReservado.setText(paramTableLivros.getValueAt(linha, 4).toString());
+                paramEmprestadoPara.setText(paramTableLivros.getValueAt(linha, 5).toString());
+                
 
             } else {
                 JOptionPane.showMessageDialog(null, "Não selecionou o registro. Erro: ");
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro: " + e.toString());
+            JOptionPane.showMessageDialog(null, "Select Error: " + e.toString());
         }
         
     }
     
-    public void inserirLivros(JTextField paramTitulo, JTextField paramAutor, JTextField paramDisponivel) {
+    public void inserirLivros(JTextField paramTitulo, JTextField paramAutor) {
         ConnectionFactory objConexao = new ConnectionFactory();
-        String inserir = "INSERT INTO tb_livros (titulo, autor, disponivel) VALUES (?, ?, ?)";
+        String inserir = "INSERT INTO tb_livros (titulo, autor, disponivel, reservado, emprestado_para) VALUES (?, ?, 1, 0, '')";
         try {
             CallableStatement cs = objConexao.obterConexao().prepareCall(inserir);
             cs.setString(1, paramTitulo.getText());
             cs.setString(2, paramAutor.getText());
-            cs.setInt(3, Integer.parseInt(paramDisponivel.getText()));
+            
             
             cs.execute();
             JOptionPane.showMessageDialog(null, "Novo registro inserido corretamente!");
             
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro: " + e.toString());
+            JOptionPane.showMessageDialog(null, "Inserir Erro: " + e.toString());
         }
     }
-    public void modificarLivros(JTextField paramTitulo, JTextField paramAutor, JTextField paramDisponivel, JTextField paramId) {
+    public void modificarLivros(JTextField paramTitulo, JTextField paramAutor, JTextField paramDisponivel, JTextField paramReservado, JTextField paramEmprestado, JTextField paramId) {
         ConnectionFactory objConexao = new ConnectionFactory();
-        String modificar = "UPDATE tb_livros SET titulo=?, autor=?, disponivel =? WHERE id = ?;";
+        String modificar = "UPDATE tb_livros SET titulo=?, autor=?, disponivel =?, reservado=?, emprestado_para=? WHERE id = ?;";
         try {
             CallableStatement cs = objConexao.obterConexao().prepareCall(modificar);
             cs.setString(1, paramTitulo.getText());
             cs.setString(2, paramAutor.getText());
             cs.setInt(3, Integer.parseInt(paramDisponivel.getText()));
-            cs.setInt(4, Integer.parseInt(paramId.getText()));
+            cs.setInt(4, Integer.parseInt(paramReservado.getText()));
+            cs.setString(5, paramEmprestado.getText());
+            cs.setInt(6, Integer.parseInt(paramId.getText()));
 
             cs.execute();
             JOptionPane.showMessageDialog(null, "Alterado com sucesso!");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro: " + e.toString());
+            JOptionPane.showMessageDialog(null, "Alterar Erro: " + e.toString());
         }
     }
     
@@ -110,44 +120,10 @@ public class GerenciamentoLivros {
             cs.execute();
             JOptionPane.showMessageDialog(null, "Linha excluída com sucesso!");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro: " + e.toString());
+            JOptionPane.showMessageDialog(null, "Excluir Erro: " + e.toString());
         }
         
     }
     
-    public void devolverLivro(JTextField paramDisponivel, JTextField paramId) {
-        ConnectionFactory objConexao = new ConnectionFactory();
-        String alterar = "UPDATE tb_livros SET disponivel =? WHERE id = ?;";
-        try {
-            CallableStatement cs = objConexao.obterConexao().prepareCall(alterar);
-            if (paramDisponivel.equals(1)) {
-                cs.setInt(1, 0);
-                cs.setInt(2, Integer.parseInt(paramId.getText()));
-            } else {
-                cs.setInt(1, 1);
-                cs.setInt(2, Integer.parseInt(paramId.getText()));
-            }
-            cs.execute();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro: " + e.toString());
-        }
-    }
-    public void retirarLivro(JTextField paramDisponivel, JTextField paramId) {
-        ConnectionFactory objConexao = new ConnectionFactory();
-        String alterar = "UPDATE tb_livros SET disponivel =? WHERE id = ?;";
-        try {
-            CallableStatement cs = objConexao.obterConexao().prepareCall(alterar);
-            if (paramDisponivel.equals(0)) {
-                cs.setInt(1, 1);
-                cs.setInt(2, Integer.parseInt(paramId.getText()));
-            } else {
-                cs.setInt(1, 0);
-                cs.setInt(2, Integer.parseInt(paramId.getText()));
-            }
-            cs.execute();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro: " + e.toString());
-        }
-    }
-    
+        
 }
