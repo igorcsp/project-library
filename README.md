@@ -34,3 +34,12 @@ PRIMARY KEY(id));
 
 INSERT INTO tb_livros (titulo, autor, disponivel, reservado, emprestado_para)
 VALUES ('UML', 'Autor UML', 1, 0, '');
+
+INSERT INTO tb_livros (titulo, autor, disponivel, reservado, emprestado_para)
+VALUES ('Vida', 'Autor Vida', 1, 0, '');
+
+INSERT INTO tb_livros (titulo, autor, disponivel, reservado, emprestado_para)
+VALUES ('Livro Legal', 'Autor Firmeza', 1, 0, '');
+
+INSERT INTO tb_livros (titulo, autor, disponivel, reservado, emprestado_para)
+VALUES ('Programação', 'Autor que Programa', 1, 0, '');
