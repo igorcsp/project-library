@@ -74,6 +74,22 @@ public class GerenciamentoLivrosDeInteresse {
         
     }
     
+    public void inserirLivros(JTextField paramTitulo, JTextField paramAutor) {
+        ConnectionFactory objConexao = new ConnectionFactory();
+        String inserir = "INSERT INTO tb_livros (titulo, autor, disponivel, reservado, emprestado_para) VALUES (?, ?, 1, 0, '')";
+        try {
+            CallableStatement cs = objConexao.obterConexao().prepareCall(inserir);
+            cs.setString(1, paramTitulo.getText());
+            cs.setString(2, paramAutor.getText());
+            
+            
+            cs.execute();
+            JOptionPane.showMessageDialog(null, "Novo registro inserido corretamente!");
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Inserir Erro: " + e.toString());
+        }
+    }
     
     public void excluirLivros(JTextField paramId) {
         ConnectionFactory objConexao = new ConnectionFactory();

@@ -12,7 +12,8 @@ public class Cadastrar {
         PreparedStatement ps = null;
         try {
         ConnectionFactory.ConnectionFactory objetoConexao = new ConnectionFactory.ConnectionFactory();
-        String inserir = "insert into tb_usuarios (cpf, nome, senha, telefone, email, endereco, complemento)values (?, ?, ?, ?, ?, ?, ?);";
+        String inserir = "insert into tb_usuarios (cpf, nome, senha, telefone, email, endereco, complemento)values (?, ?, ?, ?, ?, ?, ?); create table tb_livrosDeInteresse" + 
+                cpf.getText() + " (id INTEGER  NOT NULL   AUTO_INCREMENT, titulo VARCHAR(45)  NOT NULL  , autor VARCHAR(45)  NOT NULL  , disponivel BIT(1)  NOT NULL  , reservado BIT(1)  NOT NULL, PRIMARY KEY(id));";
         ps = objetoConexao.obterConexao().prepareStatement(inserir);
         
         String senha = String.valueOf(senhaChar.getPassword());
