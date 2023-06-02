@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package TelasAdministrador;
+package Telas;
 
 /**
  *
  * @author Igor
  */
-public class TelaMenuAdministrador extends javax.swing.JFrame {
+public class AdmTelaMenuAdministrador extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaMenuAdministrador
      */
-    public TelaMenuAdministrador() {
+    public AdmTelaMenuAdministrador() {
         super("Menu Administrador");
         initComponents();
         this.setLocationRelativeTo(null);
@@ -100,13 +100,13 @@ public class TelaMenuAdministrador extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnGerenciamentoUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGerenciamentoUsuariosActionPerformed
-        TelaGerenciamentoUsuarios tgu = new TelaGerenciamentoUsuarios();
+        AdmTelaGerenciamentoUsuarios tgu = new AdmTelaGerenciamentoUsuarios();
         this.dispose();
         tgu.setVisible(true);
     }//GEN-LAST:event_btnGerenciamentoUsuariosActionPerformed
 
     private void btnGerenciamentoLivrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGerenciamentoLivrosActionPerformed
-        TelaGerenciamentoLivros tgl = new TelaGerenciamentoLivros();
+        AdmTelaGerenciamentoLivros tgl = new AdmTelaGerenciamentoLivros();
         this.dispose();
         tgl.setVisible(true);
     }//GEN-LAST:event_btnGerenciamentoLivrosActionPerformed
@@ -128,20 +128,21 @@ public class TelaMenuAdministrador extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaMenuAdministrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdmTelaMenuAdministrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaMenuAdministrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdmTelaMenuAdministrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaMenuAdministrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdmTelaMenuAdministrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaMenuAdministrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdmTelaMenuAdministrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaMenuAdministrador().setVisible(true);
+                new AdmTelaMenuAdministrador().setVisible(true);
             }
         });
     }

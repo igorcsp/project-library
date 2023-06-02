@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package TelasUsuario;
+package Telas;
 
 import Classes.GerenciamentoLivrosDeInteresse;
 
@@ -10,18 +10,18 @@ import Classes.GerenciamentoLivrosDeInteresse;
  *
  * @author Igor
  */
-public class TelaLivrosDeInteresse extends javax.swing.JFrame {
+public class UserTelaLivrosDeInteresse extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaLivrosDeInteresse
      */
-    public TelaLivrosDeInteresse() {
+    public UserTelaLivrosDeInteresse() {
         super("Livros de interesse");
         initComponents();
         this.setLocationRelativeTo(null);
+        
         GerenciamentoLivrosDeInteresse gli = new GerenciamentoLivrosDeInteresse();
         gli.mostrarLivros(tableLivrosDeInteresse);
-        
     }
 
     /**
@@ -116,14 +116,13 @@ public class TelaLivrosDeInteresse extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        TelaMenuUsuario tmu = new TelaMenuUsuario();
+        UserTelaMenuUsuario tmu = new UserTelaMenuUsuario();
         tmu.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
-        GerenciamentoLivrosDeInteresse gli = new GerenciamentoLivrosDeInteresse();
-        //gli.excluirLivros(paramId);
+        
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     /**
@@ -143,20 +142,21 @@ public class TelaLivrosDeInteresse extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaLivrosDeInteresse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UserTelaLivrosDeInteresse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaLivrosDeInteresse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UserTelaLivrosDeInteresse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaLivrosDeInteresse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UserTelaLivrosDeInteresse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaLivrosDeInteresse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UserTelaLivrosDeInteresse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaLivrosDeInteresse().setVisible(true);
+                new UserTelaLivrosDeInteresse().setVisible(true);
             }
         });
     }

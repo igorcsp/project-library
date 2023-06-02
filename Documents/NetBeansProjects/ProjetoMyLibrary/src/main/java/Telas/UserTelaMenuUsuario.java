@@ -2,24 +2,28 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package TelasUsuario;
+package Telas;
 
-import TelasLoginECadastro.TelaLogin;
+import Classes.GerenciamentoLivros;
+import Classes.GerenciamentoLivrosDeInteresse;
+import Telas.LoginTela;
 
 /**
  *
  * @author Igor
  */
-public class TelaMenuUsuario extends javax.swing.JFrame {
+public class UserTelaMenuUsuario extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaMenuUsuario
      */
-    public TelaMenuUsuario() {
+    public UserTelaMenuUsuario() {
         super("Tela Menu Principal do Usuário");
         initComponents();
         this.setLocationRelativeTo(null);
         
+        GerenciamentoLivros gl = new GerenciamentoLivros();
+        gl.mostrarLivros(tableConsultaLivros);
     }
 
     /**
@@ -73,6 +77,11 @@ public class TelaMenuUsuario extends javax.swing.JFrame {
         });
 
         btnIncluirLista.setText("Incluir na lista de interesse");
+        btnIncluirLista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIncluirListaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -115,6 +124,11 @@ public class TelaMenuUsuario extends javax.swing.JFrame {
 
             }
         ));
+        tableConsultaLivros.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableConsultaLivrosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tableConsultaLivros);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -142,7 +156,7 @@ public class TelaMenuUsuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEmprestimosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmprestimosActionPerformed
-        TelaEmprestimos te = new TelaEmprestimos();
+        UserTelaHistorico te = new UserTelaHistorico();
         te.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnEmprestimosActionPerformed
@@ -152,7 +166,7 @@ public class TelaMenuUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLogOutActionPerformed
 
     private void btnLivrosDeInteresseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLivrosDeInteresseActionPerformed
-        TelaLivrosDeInteresse ti = new TelaLivrosDeInteresse();
+        UserTelaLivrosDeInteresse ti = new UserTelaLivrosDeInteresse();
         ti.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnLivrosDeInteresseActionPerformed
@@ -160,6 +174,14 @@ public class TelaMenuUsuario extends javax.swing.JFrame {
     private void btnReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnReservarActionPerformed
+
+    private void btnIncluirListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirListaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnIncluirListaActionPerformed
+
+    private void tableConsultaLivrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableConsultaLivrosMouseClicked
+        
+    }//GEN-LAST:event_tableConsultaLivrosMouseClicked
 
     /**
      * @param args the command line arguments
@@ -178,22 +200,23 @@ public class TelaMenuUsuario extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaMenuUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UserTelaMenuUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaMenuUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UserTelaMenuUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaMenuUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UserTelaMenuUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaMenuUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UserTelaMenuUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaMenuUsuario().setVisible(true);
+                new UserTelaMenuUsuario().setVisible(true);
                 // edidado \/ se der merda ja sabe..
-                TelaLogin tl = new TelaLogin();
+                LoginTela tl = new LoginTela();
                 tl.dispose();    
             }
         });

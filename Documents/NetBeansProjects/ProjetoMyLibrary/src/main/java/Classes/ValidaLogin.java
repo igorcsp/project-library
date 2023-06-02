@@ -1,9 +1,8 @@
 package Classes;
 
-import TelasLoginECadastro.TelaLogin;
-import TelasAdministrador.TelaMenuAdministrador;
-
-import TelasUsuario.TelaMenuUsuario;
+import Telas.LoginTela;
+import Telas.AdmTelaMenuAdministrador;
+import Telas.UserTelaMenuUsuario;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
@@ -29,15 +28,15 @@ public class ValidaLogin {
             rs = ps.executeQuery();
             
             if (rs.next()) {
-                TelaLogin tl = new TelaLogin();
+                LoginTela tl = new LoginTela();
                 if(senha.equals("admin")) {
                     JOptionPane.showMessageDialog(null, "Bem vindo, administrador!");
-                    TelaMenuAdministrador tma = new TelaMenuAdministrador();
+                    AdmTelaMenuAdministrador tma = new AdmTelaMenuAdministrador();
                     tma.setVisible(true);
                     tl.dispose(); 
                 } else {
                     JOptionPane.showMessageDialog(null, "Bem vindo!");
-                    TelaMenuUsuario tmu = new TelaMenuUsuario();
+                    UserTelaMenuUsuario tmu = new UserTelaMenuUsuario();
                     tmu.setVisible(true);
                     tl.dispose();
                 }

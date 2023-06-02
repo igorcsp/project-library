@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package TelasAdministrador;
+package Telas;
 
 import Classes.GerenciamentoUsuarios;
 
@@ -10,17 +10,19 @@ import Classes.GerenciamentoUsuarios;
  *
  * @author Igor
  */
-public class TelaGerenciamentoUsuarios extends javax.swing.JFrame {
+public class AdmTelaGerenciamentoUsuarios extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaGerenciamentoUsuarios
      */
-    public TelaGerenciamentoUsuarios() {
+    public AdmTelaGerenciamentoUsuarios() {
         super("Gerenciamento de Usuários");
         initComponents();
         this.setLocationRelativeTo(null);
         GerenciamentoUsuarios gu = new GerenciamentoUsuarios();
         gu.mostrarUsuarios(tableUsuarios);
+        
+        txtIdGerenc.setEnabled(true);
     }
 
     /**
@@ -234,6 +236,15 @@ public class TelaGerenciamentoUsuarios extends javax.swing.JFrame {
         GerenciamentoUsuarios gu = new GerenciamentoUsuarios();
         gu.inserirUsuarios(txtCpfGerenc, txtNomeGerenc, txtSenhaGerenc, txtTelefoneGerenc, txtEmailGerenc, txtEnderecoGerenc, txtComplementoGerenc);
         gu.mostrarUsuarios(tableUsuarios);
+        
+        txtIdGerenc.setText("");
+        txtCpfGerenc.setText("");
+        txtNomeGerenc.setText("");
+        txtSenhaGerenc.setText("");
+        txtTelefoneGerenc.setText("");
+        txtEmailGerenc.setText("");
+        txtEnderecoGerenc.setText("");
+        txtComplementoGerenc.setText("");
     }//GEN-LAST:event_btnIncluirGerencActionPerformed
 
     private void tableUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableUsuariosMouseClicked
@@ -245,17 +256,35 @@ public class TelaGerenciamentoUsuarios extends javax.swing.JFrame {
         GerenciamentoUsuarios gu = new GerenciamentoUsuarios();
         gu.modificarUsuarios(txtCpfGerenc, txtNomeGerenc, txtSenhaGerenc, txtTelefoneGerenc, txtEmailGerenc, txtEnderecoGerenc, txtComplementoGerenc, txtIdGerenc);
         gu.mostrarUsuarios(tableUsuarios);
+        
+        txtIdGerenc.setText("");
+        txtCpfGerenc.setText("");
+        txtNomeGerenc.setText("");
+        txtSenhaGerenc.setText("");
+        txtTelefoneGerenc.setText("");
+        txtEmailGerenc.setText("");
+        txtEnderecoGerenc.setText("");
+        txtComplementoGerenc.setText("");
     }//GEN-LAST:event_btnModificarGerencActionPerformed
 
     private void btnExcluirGerencActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirGerencActionPerformed
         GerenciamentoUsuarios gu = new GerenciamentoUsuarios();
-        gu.excluirUsuarios(txtIdGerenc);
+        gu.excluirUsuarios(txtIdGerenc, txtCpfGerenc);
         gu.mostrarUsuarios(tableUsuarios);
+        
+        txtIdGerenc.setText("");
+        txtCpfGerenc.setText("");
+        txtNomeGerenc.setText("");
+        txtSenhaGerenc.setText("");
+        txtTelefoneGerenc.setText("");
+        txtEmailGerenc.setText("");
+        txtEnderecoGerenc.setText("");
+        txtComplementoGerenc.setText("");
     }//GEN-LAST:event_btnExcluirGerencActionPerformed
 
     private void btnVoltarGerencActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarGerencActionPerformed
         this.dispose();
-        TelaMenuAdministrador tma = new TelaMenuAdministrador();
+        AdmTelaMenuAdministrador tma = new AdmTelaMenuAdministrador();
         tma.setVisible(true);
     }//GEN-LAST:event_btnVoltarGerencActionPerformed
 
@@ -276,20 +305,21 @@ public class TelaGerenciamentoUsuarios extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaGerenciamentoUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdmTelaGerenciamentoUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaGerenciamentoUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdmTelaGerenciamentoUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaGerenciamentoUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdmTelaGerenciamentoUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaGerenciamentoUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdmTelaGerenciamentoUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaGerenciamentoUsuarios().setVisible(true);
+                new AdmTelaGerenciamentoUsuarios().setVisible(true);
             }
         });
     }

@@ -2,6 +2,7 @@ package Classes;
 
 import ConnectionFactory.ConnectionFactory;
 import java.sql.CallableStatement;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
@@ -120,13 +121,23 @@ public class GerenciamentoUsuarios {
         }
     }
     
-    public void excluirUsuarios(JTextField paramId) {
+    public void excluirUsuarios(JTextField paramId, JTextField paramCpf) {
         ConnectionFactory objConexao = new ConnectionFactory();
         String excluir = "DELETE FROM tb_usuarios WHERE id=?;";
+        //
+        PreparedStatement ss = null;
+        //
         try {
             CallableStatement cs = objConexao.obterConexao().prepareCall(excluir);
             cs.setInt(1, Integer.parseInt(paramId.getText()));
             cs.execute();
+            
+            //
+            String var = paramCpf.getText();
+            String tabelaNova = String.format("drop table tb_livrosDeInteresse%s;", var);
+            ss = objConexao.obterConexao().prepareStatement(tabelaNova);
+            ss.execute();
+        //
             JOptionPane.showMessageDialog(null, "Linha excluída com sucesso!");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Excluir Erro: " + e.toString());

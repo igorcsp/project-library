@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package TelasAdministrador;
+package Telas;
 
 import Classes.GerenciamentoLivros;
 
@@ -11,17 +11,19 @@ import Classes.GerenciamentoLivros;
  *
  * @author Igor
  */
-public class TelaGerenciamentoLivros extends javax.swing.JFrame {
+public class AdmTelaGerenciamentoLivros extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaGerenciamentoUsuarios
      */
-    public TelaGerenciamentoLivros() {
+    public AdmTelaGerenciamentoLivros() {
         super("Gerenciamento de Livros");
         initComponents();
         this.setLocationRelativeTo(null);
         GerenciamentoLivros gl = new GerenciamentoLivros();
         gl.mostrarLivros(tableLivros);
+        
+        txtIdLivro.setEnabled(true);
     }
 
     /**
@@ -221,6 +223,13 @@ public class TelaGerenciamentoLivros extends javax.swing.JFrame {
         GerenciamentoLivros gu = new GerenciamentoLivros();
         gu.inserirLivros(txtTitulo, txtAutor);
         gu.mostrarLivros(tableLivros);
+        
+        txtIdLivro.setText("");
+        txtTitulo.setText("");
+        txtAutor.setText("");
+        txtDisponivel.setText("");
+        txtReservado.setText("");
+        txtEmprestadoPara.setText("");
     }//GEN-LAST:event_btnIncluirLivrosActionPerformed
 
     private void tableLivrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableLivrosMouseClicked
@@ -232,17 +241,31 @@ public class TelaGerenciamentoLivros extends javax.swing.JFrame {
         GerenciamentoLivros gu = new GerenciamentoLivros();
         gu.modificarLivros(txtTitulo, txtAutor, txtDisponivel, txtReservado, txtEmprestadoPara, txtIdLivro);
         gu.mostrarLivros(tableLivros);
+        
+        txtIdLivro.setText("");
+        txtTitulo.setText("");
+        txtAutor.setText("");
+        txtDisponivel.setText("");
+        txtReservado.setText("");
+        txtEmprestadoPara.setText("");
     }//GEN-LAST:event_btnModificarLivrosActionPerformed
 
     private void btnExcluirLivrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirLivrosActionPerformed
         GerenciamentoLivros gu = new GerenciamentoLivros();
         gu.excluirLivros(txtIdLivro);
         gu.mostrarLivros(tableLivros);
+        
+        txtIdLivro.setText("");
+        txtTitulo.setText("");
+        txtAutor.setText("");
+        txtDisponivel.setText("");
+        txtReservado.setText("");
+        txtEmprestadoPara.setText("");
     }//GEN-LAST:event_btnExcluirLivrosActionPerformed
 
     private void btnVoltarLivrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarLivrosActionPerformed
         this.dispose();
-        TelaMenuAdministrador tma = new TelaMenuAdministrador();
+        AdmTelaMenuAdministrador tma = new AdmTelaMenuAdministrador();
         tma.setVisible(true);
     }//GEN-LAST:event_btnVoltarLivrosActionPerformed
 
@@ -267,14 +290,30 @@ public class TelaGerenciamentoLivros extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaGerenciamentoLivros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdmTelaGerenciamentoLivros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaGerenciamentoLivros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdmTelaGerenciamentoLivros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaGerenciamentoLivros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdmTelaGerenciamentoLivros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaGerenciamentoLivros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdmTelaGerenciamentoLivros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -295,7 +334,7 @@ public class TelaGerenciamentoLivros extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaGerenciamentoLivros().setVisible(true);
+                new AdmTelaGerenciamentoLivros().setVisible(true);
             }
         });
     }
