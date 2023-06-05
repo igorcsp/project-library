@@ -6,7 +6,12 @@ package Telas;
 
 import Classes.GerenciamentoLivros;
 import Classes.GerenciamentoLivrosDeInteresse;
+import Classes.Usuario;
+import Classes.ValidaLogin;
 import Telas.LoginTela;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -21,6 +26,11 @@ public class UserTelaMenuUsuario extends javax.swing.JFrame {
         super("Tela Menu Principal do Usuário");
         initComponents();
         this.setLocationRelativeTo(null);
+        
+        txtCpf.setVisible(false);
+        txtId.setVisible(false);
+        txtTitulo.setVisible(false);
+        txtAutor.setVisible(false);
         
         GerenciamentoLivros gl = new GerenciamentoLivros();
         gl.mostrarLivros(tableConsultaLivros);
@@ -39,10 +49,14 @@ public class UserTelaMenuUsuario extends javax.swing.JFrame {
         btnReservar = new javax.swing.JButton();
         btnLogOut = new javax.swing.JButton();
         btnLivrosDeInteresse = new javax.swing.JButton();
-        btnEmprestimos = new javax.swing.JButton();
+        btnHistorico = new javax.swing.JButton();
         btnIncluirLista = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableConsultaLivros = new javax.swing.JTable();
+        txtId = new javax.swing.JTextField();
+        txtTitulo = new javax.swing.JTextField();
+        txtAutor = new javax.swing.JTextField();
+        txtCpf = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,10 +83,10 @@ public class UserTelaMenuUsuario extends javax.swing.JFrame {
             }
         });
 
-        btnEmprestimos.setText("Histórico");
-        btnEmprestimos.addActionListener(new java.awt.event.ActionListener() {
+        btnHistorico.setText("Histórico");
+        btnHistorico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEmprestimosActionPerformed(evt);
+                btnHistoricoActionPerformed(evt);
             }
         });
 
@@ -93,7 +107,7 @@ public class UserTelaMenuUsuario extends javax.swing.JFrame {
                     .addComponent(btnReservar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnLogOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnLivrosDeInteresse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnEmprestimos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnHistorico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnIncluirLista, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -107,7 +121,7 @@ public class UserTelaMenuUsuario extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnIncluirLista)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnEmprestimos)
+                .addComponent(btnHistorico)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnLogOut)
                 .addContainerGap(28, Short.MAX_VALUE))
@@ -131,6 +145,12 @@ public class UserTelaMenuUsuario extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tableConsultaLivros);
 
+        txtCpf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCpfActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -138,9 +158,19 @@ public class UserTelaMenuUsuario extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 484, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 487, Short.MAX_VALUE)
                 .addGap(26, 26, 26))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(75, 75, 75)
+                .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(124, 124, 124)
+                .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(txtAutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,17 +179,22 @@ public class UserTelaMenuUsuario extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtAutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(9, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnEmprestimosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmprestimosActionPerformed
-        UserTelaHistorico te = new UserTelaHistorico();
-        te.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnEmprestimosActionPerformed
+    private void btnHistoricoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistoricoActionPerformed
+        JOptionPane.showMessageDialog(null, "Em manutenção.");
+
+    }//GEN-LAST:event_btnHistoricoActionPerformed
 
     private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOutActionPerformed
         this.dispose();
@@ -172,16 +207,23 @@ public class UserTelaMenuUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLivrosDeInteresseActionPerformed
 
     private void btnReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservarActionPerformed
-        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Em manutenção.");
     }//GEN-LAST:event_btnReservarActionPerformed
 
     private void btnIncluirListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirListaActionPerformed
-        
+        GerenciamentoLivrosDeInteresse gli = new GerenciamentoLivrosDeInteresse();
+        Usuario usuario = new Usuario();
+        usuario.setCpf(JOptionPane.showInputDialog("Confirme seu CPF: "));
+        gli.inserirLivros(tableConsultaLivros, txtTitulo, txtAutor, usuario.getCpf());
     }//GEN-LAST:event_btnIncluirListaActionPerformed
 
     private void tableConsultaLivrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableConsultaLivrosMouseClicked
         
     }//GEN-LAST:event_tableConsultaLivrosMouseClicked
+
+    private void txtCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCpfActionPerformed
+        
+    }//GEN-LAST:event_txtCpfActionPerformed
 
     /**
      * @param args the command line arguments
@@ -223,7 +265,7 @@ public class UserTelaMenuUsuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnEmprestimos;
+    private javax.swing.JButton btnHistorico;
     private javax.swing.JButton btnIncluirLista;
     private javax.swing.JButton btnLivrosDeInteresse;
     private javax.swing.JButton btnLogOut;
@@ -231,5 +273,9 @@ public class UserTelaMenuUsuario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tableConsultaLivros;
+    private javax.swing.JTextField txtAutor;
+    private javax.swing.JTextField txtCpf;
+    private javax.swing.JTextField txtId;
+    private javax.swing.JTextField txtTitulo;
     // End of variables declaration//GEN-END:variables
 }

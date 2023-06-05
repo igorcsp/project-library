@@ -5,6 +5,8 @@
 package Telas;
 
 import Classes.GerenciamentoLivrosDeInteresse;
+import Classes.Usuario;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -20,8 +22,14 @@ public class UserTelaLivrosDeInteresse extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         
+        String cpf = JOptionPane.showInputDialog("Confirme seu CPF.");
+        
         GerenciamentoLivrosDeInteresse gli = new GerenciamentoLivrosDeInteresse();
-        gli.mostrarLivros(tableLivrosDeInteresse);
+        gli.mostrarLivros(tableLivrosDeInteresse, cpf);
+        
+        txtIdLivrosDeInteresse.setVisible(false);
+        txtTituloLivrosDeInteresse.setVisible(false);
+        txtAutorLivrosDeInteresse.setVisible(false);
         
     }
 
@@ -39,6 +47,9 @@ public class UserTelaLivrosDeInteresse extends javax.swing.JFrame {
         btnVoltar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableLivrosDeInteresse = new javax.swing.JTable();
+        txtIdLivrosDeInteresse = new javax.swing.JTextField();
+        txtTituloLivrosDeInteresse = new javax.swing.JTextField();
+        txtAutorLivrosDeInteresse = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,7 +80,18 @@ public class UserTelaLivrosDeInteresse extends javax.swing.JFrame {
 
             }
         ));
+        tableLivrosDeInteresse.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableLivrosDeInteresseMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tableLivrosDeInteresse);
+
+        txtTituloLivrosDeInteresse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTituloLivrosDeInteresseActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -78,7 +100,13 @@ public class UserTelaLivrosDeInteresse extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtIdLivrosDeInteresse, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtTituloLivrosDeInteresse, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtAutorLivrosDeInteresse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -89,11 +117,20 @@ public class UserTelaLivrosDeInteresse extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnExcluir)
-                    .addComponent(btnVoltar))
-                .addContainerGap())
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnExcluir)
+                            .addComponent(btnVoltar))
+                        .addContainerGap())
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtIdLivrosDeInteresse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtTituloLivrosDeInteresse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtAutorLivrosDeInteresse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -123,8 +160,22 @@ public class UserTelaLivrosDeInteresse extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
-        
+        GerenciamentoLivrosDeInteresse gli = new GerenciamentoLivrosDeInteresse();
+        Usuario usuario = new Usuario();
+        usuario.setCpf(JOptionPane.showInputDialog("Confirme o CPF: "));
+        gli.excluirLivros(txtIdLivrosDeInteresse, usuario.getCpf());
+        gli.mostrarLivros(tableLivrosDeInteresse, usuario.getCpf());
     }//GEN-LAST:event_btnExcluirActionPerformed
+
+    private void tableLivrosDeInteresseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableLivrosDeInteresseMouseClicked
+        GerenciamentoLivrosDeInteresse gli = new GerenciamentoLivrosDeInteresse();
+        gli.selecionarLivros(tableLivrosDeInteresse, txtIdLivrosDeInteresse, txtTituloLivrosDeInteresse, txtAutorLivrosDeInteresse);
+        
+    }//GEN-LAST:event_tableLivrosDeInteresseMouseClicked
+
+    private void txtTituloLivrosDeInteresseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTituloLivrosDeInteresseActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTituloLivrosDeInteresseActionPerformed
 
     /**
      * @param args the command line arguments
@@ -168,5 +219,8 @@ public class UserTelaLivrosDeInteresse extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tableLivrosDeInteresse;
+    private javax.swing.JTextField txtAutorLivrosDeInteresse;
+    private javax.swing.JTextField txtIdLivrosDeInteresse;
+    private javax.swing.JTextField txtTituloLivrosDeInteresse;
     // End of variables declaration//GEN-END:variables
 }

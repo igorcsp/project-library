@@ -23,7 +23,8 @@ public class AdmTelaGerenciamentoLivros extends javax.swing.JFrame {
         GerenciamentoLivros gl = new GerenciamentoLivros();
         gl.mostrarLivros(tableLivros);
         
-        txtIdLivro.setEnabled(true);
+        txtIdLivro.setEnabled(false);
+        
     }
 
     /**
@@ -51,12 +52,19 @@ public class AdmTelaGerenciamentoLivros extends javax.swing.JFrame {
         txtReservado = new javax.swing.JTextField();
         txtEmprestadoPara = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
+        btnLimpar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableLivros = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Gerenciamento de Livros"));
+
+        txtTitulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTituloActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Título:");
 
@@ -104,6 +112,13 @@ public class AdmTelaGerenciamentoLivros extends javax.swing.JFrame {
 
         jLabel5.setText("Emprestado para:");
 
+        btnLimpar.setText("Limpar campos");
+        btnLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimparActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -121,7 +136,9 @@ public class AdmTelaGerenciamentoLivros extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addGap(11, 11, 11)
                                 .addComponent(txtIdLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnLimpar)
+                                .addGap(76, 76, 76))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel1)
@@ -164,9 +181,15 @@ public class AdmTelaGerenciamentoLivros extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtEmprestadoPara, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
-                .addGap(18, 18, Short.MAX_VALUE)
-                .addComponent(txtIdLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, Short.MAX_VALUE)
+                        .addComponent(txtIdLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(btnLimpar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(btnIncluirLivros)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -273,6 +296,19 @@ public class AdmTelaGerenciamentoLivros extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEmprestadoParaActionPerformed
 
+    private void txtTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTituloActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTituloActionPerformed
+
+    private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
+        txtIdLivro.setText("");
+        txtTitulo.setText("");
+        txtAutor.setText("");
+        txtDisponivel.setText("");
+        txtReservado.setText("");
+        txtEmprestadoPara.setText("");
+    }//GEN-LAST:event_btnLimparActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -342,6 +378,7 @@ public class AdmTelaGerenciamentoLivros extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnExcluirLivros;
     private javax.swing.JButton btnIncluirLivros;
+    private javax.swing.JButton btnLimpar;
     private javax.swing.JButton btnModificarLivros;
     private javax.swing.JButton btnVoltarLivros;
     private javax.swing.JLabel jLabel1;

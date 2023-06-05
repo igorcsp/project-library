@@ -26,9 +26,20 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="21" max="32767" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" pref="484" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="jScrollPane1" pref="487" max="32767" attributes="0"/>
               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
+              <Component id="txtCpf" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="124" max="-2" attributes="0"/>
+              <Component id="txtId" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="txtTitulo" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="txtAutor" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -40,7 +51,14 @@
                   <Component id="jPanel1" max="32767" attributes="0"/>
                   <Component id="jScrollPane1" pref="0" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace pref="12" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtId" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtTitulo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtAutor" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtCpf" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="9" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -64,7 +82,7 @@
                       <Component id="btnReservar" max="32767" attributes="0"/>
                       <Component id="btnLogOut" max="32767" attributes="0"/>
                       <Component id="btnLivrosDeInteresse" alignment="0" max="32767" attributes="0"/>
-                      <Component id="btnEmprestimos" alignment="0" max="32767" attributes="0"/>
+                      <Component id="btnHistorico" alignment="0" max="32767" attributes="0"/>
                       <Component id="btnIncluirLista" alignment="1" pref="183" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -81,7 +99,7 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="btnIncluirLista" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="btnEmprestimos" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnHistorico" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="btnLogOut" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="28" max="32767" attributes="0"/>
@@ -114,12 +132,12 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLivrosDeInteresseActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnEmprestimos">
+        <Component class="javax.swing.JButton" name="btnHistorico">
           <Properties>
             <Property name="text" type="java.lang.String" value="Hist&#xf3;rico"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEmprestimosActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnHistoricoActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnIncluirLista">
@@ -157,5 +175,16 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JTextField" name="txtId">
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtTitulo">
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtAutor">
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtCpf">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCpfActionPerformed"/>
+      </Events>
+    </Component>
   </SubComponents>
 </Form>

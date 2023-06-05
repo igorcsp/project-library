@@ -4,6 +4,8 @@
  */
 package Telas;
 
+import Classes.ContadorUsuarios;
+
 /**
  *
  * @author Igor
@@ -17,6 +19,8 @@ public class AdmTelaMenuAdministrador extends javax.swing.JFrame {
         super("Menu Administrador");
         initComponents();
         this.setLocationRelativeTo(null);
+        
+        
     }
 
     /**
@@ -83,11 +87,11 @@ public class AdmTelaMenuAdministrador extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addComponent(jLabel1)
-                .addGap(86, 86, 86)
+                .addGap(68, 68, 68)
                 .addComponent(btnGerenciamentoUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
+                .addGap(47, 47, 47)
                 .addComponent(btnGerenciamentoLivros, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(16, 16, 16))
         );

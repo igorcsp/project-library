@@ -7,11 +7,11 @@ import javax.swing.JOptionPane;
 
 public class ConnectionFactory {
     Connection conectar;
-    private static String usuario = "root";
-    private static String senha = "1234";
-    private static String bd = "db_mylibrary";
-    private static String host = "localhost";
-    private static String porta = "3306";
+    private static final String usuario = "root";
+    private static final String senha = "1234";
+    private static final String bd = "db_mylibrary";
+    private static final String host = "localhost";
+    private static final String porta = "3306";
     
     String url = String.format("jdbc:mysql://%s:%s/%s", host, porta, bd);
     

@@ -173,7 +173,7 @@ public class CadastroTelaUsuario extends javax.swing.JFrame {
 
     private void btnFinalizarCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarCadastroActionPerformed
         Cadastrar cc = new Cadastrar();
-        cc.inserirCadastroComum(txtCpfCadastro, txtNomeCadastro, txtSenhaCadastro, txtTelefoneCadastro, txtEmailCadastro, txtEnderecoCadastro, txtComplementoCadastro);
+        cc.inserirCadastro(txtCpfCadastro, txtNomeCadastro, txtSenhaCadastro, txtTelefoneCadastro, txtEmailCadastro, txtEnderecoCadastro, txtComplementoCadastro);
         
         txtCpfCadastro.setText("");
         txtNomeCadastro.setText("");
