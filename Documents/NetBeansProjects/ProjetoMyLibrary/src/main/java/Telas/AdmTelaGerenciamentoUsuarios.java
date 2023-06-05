@@ -22,7 +22,7 @@ public class AdmTelaGerenciamentoUsuarios extends javax.swing.JFrame {
         GerenciamentoUsuarios gu = new GerenciamentoUsuarios();
         gu.mostrarUsuarios(tableUsuarios);
         
-        txtIdGerenc.setEnabled(true);
+        txtIdGerenc.setEnabled(false);
     }
 
     /**
@@ -54,6 +54,7 @@ public class AdmTelaGerenciamentoUsuarios extends javax.swing.JFrame {
         btnExcluirGerenc = new javax.swing.JButton();
         btnVoltarGerenc = new javax.swing.JButton();
         txtIdGerenc = new javax.swing.JTextField();
+        btnLimpar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableUsuarios = new javax.swing.JTable();
 
@@ -105,6 +106,13 @@ public class AdmTelaGerenciamentoUsuarios extends javax.swing.JFrame {
 
         txtIdGerenc.setBorder(javax.swing.BorderFactory.createTitledBorder("ID"));
 
+        btnLimpar.setText("Limpar campos");
+        btnLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimparActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -112,6 +120,15 @@ public class AdmTelaGerenciamentoUsuarios extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnIncluirGerenc, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnVoltarGerenc, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnModificarGerenc, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnExcluirGerenc, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap())
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
@@ -123,27 +140,21 @@ public class AdmTelaGerenciamentoUsuarios extends javax.swing.JFrame {
                             .addComponent(jLabel7))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNomeGerenc)
-                            .addComponent(txtCpfGerenc, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtComplementoGerenc)
-                            .addComponent(txtEnderecoGerenc)
-                            .addComponent(txtEmailGerenc)
-                            .addComponent(txtTelefoneGerenc)
-                            .addComponent(txtSenhaGerenc, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(9, 9, 9))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnIncluirGerenc, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnVoltarGerenc, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnModificarGerenc, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnExcluirGerenc, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap())))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(txtIdGerenc, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48))
+                                .addComponent(btnLimpar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtIdGerenc, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(48, 48, 48))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtNomeGerenc)
+                                    .addComponent(txtCpfGerenc, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtComplementoGerenc)
+                                    .addComponent(txtEnderecoGerenc)
+                                    .addComponent(txtEmailGerenc)
+                                    .addComponent(txtTelefoneGerenc)
+                                    .addComponent(txtSenhaGerenc, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addGap(9, 9, 9))))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,7 +188,9 @@ public class AdmTelaGerenciamentoUsuarios extends javax.swing.JFrame {
                     .addComponent(txtComplementoGerenc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
                 .addGap(18, 18, 18)
-                .addComponent(txtIdGerenc, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtIdGerenc, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnLimpar))
                 .addGap(18, 18, 18)
                 .addComponent(btnIncluirGerenc)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -288,6 +301,17 @@ public class AdmTelaGerenciamentoUsuarios extends javax.swing.JFrame {
         tma.setVisible(true);
     }//GEN-LAST:event_btnVoltarGerencActionPerformed
 
+    private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
+        txtIdGerenc.setText("");
+        txtCpfGerenc.setText("");
+        txtNomeGerenc.setText("");
+        txtSenhaGerenc.setText("");
+        txtTelefoneGerenc.setText("");
+        txtEmailGerenc.setText("");
+        txtEnderecoGerenc.setText("");
+        txtComplementoGerenc.setText("");
+    }//GEN-LAST:event_btnLimparActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -327,6 +351,7 @@ public class AdmTelaGerenciamentoUsuarios extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnExcluirGerenc;
     private javax.swing.JButton btnIncluirGerenc;
+    private javax.swing.JButton btnLimpar;
     private javax.swing.JButton btnModificarGerenc;
     private javax.swing.JButton btnVoltarGerenc;
     private javax.swing.JLabel jLabel1;

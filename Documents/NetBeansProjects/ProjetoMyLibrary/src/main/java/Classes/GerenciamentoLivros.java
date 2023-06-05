@@ -54,6 +54,7 @@ public class GerenciamentoLivros {
             JOptionPane.showMessageDialog(null, "Não mostrou o registro. Erro: " + e.toString());
         }
     }
+    
     public void selecionarLivros(JTable paramTableLivros, JTextField paramId, JTextField paramTitulo, JTextField paramAutor, JTextField paramDisponivel, JTextField paramReservado, JTextField paramEmprestadoPara) {
         try {
             int linha = paramTableLivros.getSelectedRow();
@@ -92,6 +93,7 @@ public class GerenciamentoLivros {
             JOptionPane.showMessageDialog(null, "Inserir Erro: " + e.toString());
         }
     }
+    
     public void modificarLivros(JTextField paramTitulo, JTextField paramAutor, JTextField paramDisponivel, JTextField paramReservado, JTextField paramEmprestado, JTextField paramId) {
         ConnectionFactory objConexao = new ConnectionFactory();
         String modificar = "UPDATE tb_livros SET titulo=?, autor=?, disponivel =?, reservado=?, emprestado_para=? WHERE id = ?;";
@@ -125,5 +127,5 @@ public class GerenciamentoLivros {
         
     }
     
-        
+    
 }

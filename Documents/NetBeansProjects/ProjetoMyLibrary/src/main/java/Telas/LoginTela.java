@@ -4,14 +4,21 @@
  */
 package Telas;
 
+import Classes.Usuario;
 import Classes.ValidaLogin;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
  * @author Igor
  */
 public class LoginTela extends javax.swing.JFrame {
-
+    
+    
     /**
      * Creates new form TelaLogin
      */
@@ -19,6 +26,7 @@ public class LoginTela extends javax.swing.JFrame {
         super("Login");
         initComponents();
         this.setLocationRelativeTo(null);
+        
     }
 
     /**
@@ -98,16 +106,16 @@ public class LoginTela extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnSairLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(132, 132, 132)
+                        .addGap(133, 133, 133)
                         .addComponent(jLabel3)))
                 .addContainerGap(44, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addGap(28, 28, 28)
                 .addComponent(jLabel3)
-                .addGap(30, 30, 30)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCpfLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
