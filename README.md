@@ -43,3 +43,39 @@ VALUES ('Livro Legal', 'Autor Firmeza', 1, 0, '');
 
 INSERT INTO tb_livros (titulo, autor, disponivel, reservado, emprestado_para)
 VALUES ('Programação', 'Autor que Programa', 1, 0, '');
+
+INSERT INTO tb_livros (titulo, autor, disponivel, reservado, emprestado_para)
+VALUES ('ACMA - Sistema de monitoramento e inventário', 'Adriano Urbano', 1, 0, '');
+
+INSERT INTO tb_livros (titulo, autor, disponivel, reservado, emprestado_para)
+VALUES ('Administração de trabalhos de graduação', 'Adriana Petrin', 1, 0, '');
+
+INSERT INTO tb_livros (titulo, autor, disponivel, reservado, emprestado_para)
+VALUES (' Administração dos sistemas de operações', 'Francielle Cristina', 1, 0, '');
+
+INSERT INTO tb_livros (titulo, autor, disponivel, reservado, emprestado_para)
+VALUES ('A Flor do Lado de Lá', 'ROGER MELLO', 1, 0, '');
+
+INSERT INTO tb_livros (titulo, autor, disponivel, reservado, emprestado_para)
+VALUES ('Agile estimating and planning', 'COHN, Mike', 1, 0, '');
+
+INSERT INTO tb_livros (titulo, autor, disponivel, reservado, emprestado_para)
+VALUES ('Ainda moderno', 'Lauro Pereira', 1, 0, '');
+
+INSERT INTO tb_livros (titulo, autor, disponivel, reservado, emprestado_para)
+VALUES ('Visual J++ Java programming', 'FLYNN, Jeff', 1, 0, '');
+
+INSERT INTO tb_livros (titulo, autor, disponivel, reservado, emprestado_para)
+VALUES ('Use a cabeça', 'FREEMAN, Eric', 1, 0, '');
+
+INSERT INTO tb_livros (titulo, autor, disponivel, reservado, emprestado_para)
+VALUES ('Transfer', 'André Luiz', 1, 0, '');
+
+INSERT INTO tb_livros (titulo, autor, disponivel, reservado, emprestado_para)
+VALUES ('Técnicas de programação', 'Walter Luiz Caram', 1, 0, '');
+
+INSERT INTO tb_livros (titulo, autor, disponivel, reservado, emprestado_para)
+VALUES ('Soluções práticas', 'SERPA, Artur', 1, 0, '');
+
+INSERT INTO tb_livros (titulo, autor, disponivel, reservado, emprestado_para)
+VALUES ('Sistema livraria virtua', 'Marcos André', 1, 0, '');
