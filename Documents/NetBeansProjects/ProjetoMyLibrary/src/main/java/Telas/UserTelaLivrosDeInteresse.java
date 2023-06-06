@@ -22,10 +22,10 @@ public class UserTelaLivrosDeInteresse extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         
-        String cpf = JOptionPane.showInputDialog("Confirme seu CPF.");
+        Usuario usuario = new Usuario();
         
         GerenciamentoLivrosDeInteresse gli = new GerenciamentoLivrosDeInteresse();
-        gli.mostrarLivros(tableLivrosDeInteresse, cpf);
+        gli.mostrarLivros(tableLivrosDeInteresse, usuario.getCpf());
         
         txtIdLivrosDeInteresse.setVisible(false);
         txtTituloLivrosDeInteresse.setVisible(false);
@@ -162,7 +162,6 @@ public class UserTelaLivrosDeInteresse extends javax.swing.JFrame {
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         GerenciamentoLivrosDeInteresse gli = new GerenciamentoLivrosDeInteresse();
         Usuario usuario = new Usuario();
-        usuario.setCpf(JOptionPane.showInputDialog("Confirme o CPF: "));
         gli.excluirLivros(txtIdLivrosDeInteresse, usuario.getCpf());
         gli.mostrarLivros(tableLivrosDeInteresse, usuario.getCpf());
     }//GEN-LAST:event_btnExcluirActionPerformed

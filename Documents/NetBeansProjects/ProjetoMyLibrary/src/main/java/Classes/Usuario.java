@@ -4,7 +4,7 @@ package Classes;
 
 public class Usuario {
 
-    private String cpf;
+    private static String cpf;
     
     public String getCpf() {
         return cpf;

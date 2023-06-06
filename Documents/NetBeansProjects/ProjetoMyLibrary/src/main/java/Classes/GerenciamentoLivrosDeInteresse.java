@@ -25,8 +25,9 @@ public class GerenciamentoLivrosDeInteresse {
         
         paramTableLivrosDeInteresse.setModel(modelo);
         
-        String var = paramCpf;
-        sql = String.format("SELECT * FROM tb_livrosDeInteresse%s;", var);
+        Usuario usuario = new Usuario();
+        
+        sql = String.format("SELECT * FROM tb_livrosDeInteresse%s;", usuario.getCpf());
         
         String [] dados = new String[3];
         
@@ -69,8 +70,8 @@ public class GerenciamentoLivrosDeInteresse {
     
     public void inserirLivros(JTable paramTableLivros, JTextField paramTitulo, JTextField paramAutor, String paramCpf) {
         ConnectionFactory objConexao = new ConnectionFactory();
-        String var = paramCpf;
-        String inserir = String.format("INSERT INTO tb_livrosDeInteresse%s (titulo, autor) VALUES (?, ?)",var);
+        Usuario usuario = new Usuario();
+        String inserir = String.format("INSERT INTO tb_livrosDeInteresse%s (titulo, autor) VALUES (?, ?)",usuario.getCpf());
         try {
             int linha = paramTableLivros.getSelectedRow();
             CallableStatement cs = objConexao.obterConexao().prepareCall(inserir);
@@ -89,8 +90,8 @@ public class GerenciamentoLivrosDeInteresse {
     
     public void excluirLivros(JTextField paramId, String paramCpf) {
         ConnectionFactory objConexao = new ConnectionFactory();
-        String var = paramCpf;
-        String excluir = String.format("DELETE FROM tb_livrosDeInteresse%s WHERE id=?;", var);
+        Usuario usuario = new Usuario();
+        String excluir = String.format("DELETE FROM tb_livrosDeInteresse%s WHERE id=?;", usuario.getCpf());
         try {
             CallableStatement cs = objConexao.obterConexao().prepareCall(excluir);
             cs.setInt(1, Integer.parseInt(paramId.getText()));

@@ -27,6 +27,7 @@ public class UserTelaMenuUsuario extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         
+        
         txtCpf.setVisible(false);
         txtId.setVisible(false);
         txtTitulo.setVisible(false);
@@ -213,7 +214,6 @@ public class UserTelaMenuUsuario extends javax.swing.JFrame {
     private void btnIncluirListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirListaActionPerformed
         GerenciamentoLivrosDeInteresse gli = new GerenciamentoLivrosDeInteresse();
         Usuario usuario = new Usuario();
-        usuario.setCpf(JOptionPane.showInputDialog("Confirme seu CPF: "));
         gli.inserirLivros(tableConsultaLivros, txtTitulo, txtAutor, usuario.getCpf());
     }//GEN-LAST:event_btnIncluirListaActionPerformed
 

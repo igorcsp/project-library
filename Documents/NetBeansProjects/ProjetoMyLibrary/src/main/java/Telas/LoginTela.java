@@ -157,7 +157,12 @@ public class LoginTela extends javax.swing.JFrame {
 
     private void btnEntrarLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarLoginActionPerformed
         Classes.ValidaLogin cl = new ValidaLogin();
+        Usuario usuario = new Usuario();
+        usuario.setCpf(txtCpfLogin.getText());
+        
         cl.validaUsuario(txtCpfLogin, txtSenhaLogin);
+        
+        
         
         txtCpfLogin.setText("");
         txtSenhaLogin.setText("");

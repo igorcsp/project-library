@@ -5,6 +5,8 @@
 package Telas;
 
 import Classes.ContadorRegistros;
+import Classes.Usuario;
+import javax.swing.JOptionPane;
 
 /**
  *
