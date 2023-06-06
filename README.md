@@ -20,9 +20,6 @@ CREATE TABLE tb_usuarios (
 INSERT INTO tb_usuarios (cpf, nome, senha, telefone, email, endereco, complemento)
 VALUES ('admin', 'admin', 'admin', 'admin', 'admin', 'admin', '');
 
-INSERT INTO tb_usuarios (cpf, nome, senha, telefone, email, endereco, complemento)
-VALUES ('46474042850', 'Igor Pereira', 'senhateste', '11985212161', 'igor@email.com', 'Rua Inacio, 1000', 'ap 112');
-
 CREATE TABLE tb_livros (
   id INTEGER  NOT NULL   AUTO_INCREMENT,
   titulo VARCHAR(45)  NOT NULL  ,
