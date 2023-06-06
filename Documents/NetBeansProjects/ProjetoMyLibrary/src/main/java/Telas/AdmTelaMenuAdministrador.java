@@ -4,7 +4,7 @@
  */
 package Telas;
 
-import Classes.ContadorUsuarios;
+import Classes.ContadorRegistros;
 
 /**
  *
@@ -20,7 +20,13 @@ public class AdmTelaMenuAdministrador extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         
+        ContadorRegistros contUsuarios = new ContadorRegistros();
+        int numeroUsuarios = contUsuarios.contarRegistros("tb_usuarios");
+        txtNumeroUsuarios.setText(String.valueOf(numeroUsuarios));
         
+        ContadorRegistros contLivros = new ContadorRegistros();
+        int numeroLivros = contLivros.contarRegistros("tb_livros");
+        txtNumeroLivros.setText(String.valueOf(numeroLivros));
     }
 
     /**
@@ -36,8 +42,11 @@ public class AdmTelaMenuAdministrador extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         btnGerenciamentoUsuarios = new javax.swing.JButton();
         btnGerenciamentoLivros = new javax.swing.JButton();
+        txtNumeroUsuarios = new javax.swing.JTextField();
+        txtNumeroLivros = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setText("Menu");
 
@@ -62,6 +71,10 @@ public class AdmTelaMenuAdministrador extends javax.swing.JFrame {
             }
         });
 
+        txtNumeroUsuarios.setBorder(javax.swing.BorderFactory.createTitledBorder("Nº de usuários"));
+
+        txtNumeroLivros.setBorder(javax.swing.BorderFactory.createTitledBorder("Nº de livros"));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -79,7 +92,12 @@ public class AdmTelaMenuAdministrador extends javax.swing.JFrame {
                             .addComponent(jLabel1))
                         .addGroup(layout.createSequentialGroup()
                             .addGap(160, 160, 160)
-                            .addComponent(btnGerenciamentoLivros, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(btnGerenciamentoLivros, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(txtNumeroUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtNumeroLivros, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(182, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -91,7 +109,11 @@ public class AdmTelaMenuAdministrador extends javax.swing.JFrame {
                 .addComponent(btnGerenciamentoUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(47, 47, 47)
                 .addComponent(btnGerenciamentoLivros, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
+                .addGap(35, 35, 35)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNumeroLivros, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNumeroUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(78, 78, 78)
                 .addComponent(jButton1)
                 .addGap(16, 16, 16))
         );
@@ -156,5 +178,7 @@ public class AdmTelaMenuAdministrador extends javax.swing.JFrame {
     private javax.swing.JButton btnGerenciamentoUsuarios;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JTextField txtNumeroLivros;
+    private javax.swing.JTextField txtNumeroUsuarios;
     // End of variables declaration//GEN-END:variables
 }
