@@ -60,6 +60,7 @@ public class GerenciamentoUsuarios {
             JOptionPane.showMessageDialog(null, "Não mostrou o registro. Erro: " + e.toString());
         }
     }
+    
     public void selecionarUsuarios(JTable paramTableUsuarios, JTextField paramId, JTextField paramCpf, JTextField paramNome, JPasswordField paramSenha, JTextField paramTelefone, JTextField paramEmail, JTextField paramEndereco, JTextField paramComplemento) {
         try {
             int linha = paramTableUsuarios.getSelectedRow();
@@ -81,26 +82,7 @@ public class GerenciamentoUsuarios {
         }
         
     }
-    public void inserirUsuarios(JTextField paramCpf, JTextField paramNome, JPasswordField paramSenha, JTextField paramTelefone, JTextField paramEmail, JTextField paramEndereco, JTextField paramComplemento) {
-        ConnectionFactory objConexao = new ConnectionFactory();
-        String inserir = "INSERT INTO tb_usuarios (cpf, nome, senha, telefone, email, endereco, complemento) VALUES (?, ?, ?, ?, ?, ?, ?)";
-        try {
-            CallableStatement cs = objConexao.obterConexao().prepareCall(inserir);
-            cs.setString(1, paramCpf.getText());
-            cs.setString(2, paramNome.getText());
-            cs.setString(3, paramSenha.getText());
-            cs.setString(4, paramTelefone.getText());
-            cs.setString(5, paramEmail.getText());
-            cs.setString(6, paramEndereco.getText());
-            cs.setString(7, paramComplemento.getText());
-            
-            cs.execute();
-            JOptionPane.showMessageDialog(null, "Novo registro inserido corretamente!");
-            
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Incluir Erro: " + e.toString());
-        }
-    }
+    
     public void modificarUsuarios(JTextField paramCpf, JTextField paramNome, JPasswordField paramSenha, JTextField paramTelefone, JTextField paramEmail, JTextField paramEndereco, JTextField paramComplemento, JTextField paramId) {
         ConnectionFactory objConexao = new ConnectionFactory();
         String modificar = "UPDATE tb_usuarios SET cpf = ?, nome = ?, senha=?, telefone=?, email=?, endereco=?, complemento=? WHERE id = ?;";
@@ -124,20 +106,19 @@ public class GerenciamentoUsuarios {
     public void excluirUsuarios(JTextField paramId, JTextField paramCpf) {
         ConnectionFactory objConexao = new ConnectionFactory();
         String excluir = "DELETE FROM tb_usuarios WHERE id=?;";
-        //
+        
         PreparedStatement ss = null;
-        //
+        
         try {
             CallableStatement cs = objConexao.obterConexao().prepareCall(excluir);
             cs.setInt(1, Integer.parseInt(paramId.getText()));
             cs.execute();
             
-            //
             String var = paramCpf.getText();
             String tabelaNova = String.format("drop table tb_livrosDeInteresse%s;", var);
             ss = objConexao.obterConexao().prepareStatement(tabelaNova);
             ss.execute();
-        //
+        
             JOptionPane.showMessageDialog(null, "Linha excluída com sucesso!");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Excluir Erro: " + e.toString());
