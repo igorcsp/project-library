@@ -4,6 +4,7 @@
  */
 package Telas;
 
+import Classes.ReservarLivro;
 import Classes.Usuario;
 import Classes.ValidaLogin;
 import java.sql.SQLException;
@@ -106,16 +107,16 @@ public class LoginTela extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnSairLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(133, 133, 133)
+                        .addGap(134, 134, 134)
                         .addComponent(jLabel3)))
                 .addContainerGap(44, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addContainerGap()
                 .addComponent(jLabel3)
-                .addGap(18, 18, 18)
+                .addGap(40, 40, 40)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCpfLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
@@ -157,7 +158,13 @@ public class LoginTela extends javax.swing.JFrame {
 
     private void btnEntrarLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarLoginActionPerformed
         Classes.ValidaLogin cl = new ValidaLogin();
+        Usuario usuario = new Usuario();
+        usuario.setCpf(txtCpfLogin.getText());
+        
+        
         cl.validaUsuario(txtCpfLogin, txtSenhaLogin);
+        
+        
         
         txtCpfLogin.setText("");
         txtSenhaLogin.setText("");

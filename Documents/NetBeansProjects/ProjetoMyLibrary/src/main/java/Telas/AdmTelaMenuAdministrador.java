@@ -5,6 +5,8 @@
 package Telas;
 
 import Classes.ContadorRegistros;
+import Classes.Usuario;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,11 +23,11 @@ public class AdmTelaMenuAdministrador extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         
         ContadorRegistros contUsuarios = new ContadorRegistros();
-        int numeroUsuarios = contUsuarios.contarRegistros("tb_usuarios");
+        int numeroUsuarios = contUsuarios.contarRegistros("tb_usuariosA");
         txtNumeroUsuarios.setText(String.valueOf(numeroUsuarios));
         
         ContadorRegistros contLivros = new ContadorRegistros();
-        int numeroLivros = contLivros.contarRegistros("tb_livros");
+        int numeroLivros = contLivros.contarRegistros("tb_livrosA");
         txtNumeroLivros.setText(String.valueOf(numeroLivros));
     }
 

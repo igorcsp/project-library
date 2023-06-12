@@ -4,6 +4,7 @@
  */
 package Telas;
 
+import Classes.Cadastrar;
 import Classes.GerenciamentoUsuarios;
 
 /**
@@ -247,7 +248,8 @@ public class AdmTelaGerenciamentoUsuarios extends javax.swing.JFrame {
 
     private void btnIncluirGerencActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirGerencActionPerformed
         GerenciamentoUsuarios gu = new GerenciamentoUsuarios();
-        gu.inserirUsuarios(txtCpfGerenc, txtNomeGerenc, txtSenhaGerenc, txtTelefoneGerenc, txtEmailGerenc, txtEnderecoGerenc, txtComplementoGerenc);
+        Cadastrar cadastrar = new Cadastrar();
+        cadastrar.inserirCadastro(txtCpfGerenc, txtNomeGerenc, txtSenhaGerenc, txtTelefoneGerenc, txtEmailGerenc, txtEnderecoGerenc, txtComplementoGerenc);
         gu.mostrarUsuarios(tableUsuarios);
         
         txtIdGerenc.setText("");

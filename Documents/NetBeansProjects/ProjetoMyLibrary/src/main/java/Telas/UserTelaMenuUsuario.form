@@ -33,8 +33,8 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
               <Component id="txtCpf" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="124" max="-2" attributes="0"/>
-              <Component id="txtId" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+              <Component id="txtId" min="-2" pref="129" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="txtTitulo" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
