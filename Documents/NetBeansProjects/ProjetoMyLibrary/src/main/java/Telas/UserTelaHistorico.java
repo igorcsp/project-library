@@ -4,6 +4,10 @@
  */
 package Telas;
 
+
+import Classes.GerenciamentoHistorico;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Igor
@@ -17,6 +21,13 @@ public class UserTelaHistorico extends javax.swing.JFrame {
         super("Histórico");
         initComponents();
         this.setLocationRelativeTo(null);
+        
+        GerenciamentoHistorico gh = new GerenciamentoHistorico();
+        gh.mostrarHistorico(tableHistorico);
+        
+        txtIdH.setVisible(false);
+        txtTituloH.setVisible(false);
+        txtAutorH.setVisible(false);
     }
 
     /**
@@ -29,13 +40,15 @@ public class UserTelaHistorico extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tableHistorico = new javax.swing.JTable();
         btnVoltar = new javax.swing.JButton();
-        btnRenovar = new javax.swing.JButton();
+        txtIdH = new javax.swing.JTextField();
+        txtTituloH = new javax.swing.JTextField();
+        txtAutorH = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tableHistorico.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -46,7 +59,12 @@ public class UserTelaHistorico extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        tableHistorico.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableHistoricoMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tableHistorico);
 
         btnVoltar.setText("Voltar");
         btnVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -54,8 +72,6 @@ public class UserTelaHistorico extends javax.swing.JFrame {
                 btnVoltarActionPerformed(evt);
             }
         });
-
-        btnRenovar.setText("Renovar empréstimo");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -65,12 +81,15 @@ public class UserTelaHistorico extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnRenovar, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(6, 6, 6)
+                        .addComponent(txtIdH, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(5, 5, 5)
+                        .addComponent(txtTituloH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtAutorH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -80,8 +99,10 @@ public class UserTelaHistorico extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRenovar)
-                    .addComponent(btnVoltar))
+                    .addComponent(btnVoltar)
+                    .addComponent(txtIdH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTituloH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtAutorH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15))
         );
 
@@ -93,6 +114,10 @@ public class UserTelaHistorico extends javax.swing.JFrame {
         tmu.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
+
+    private void tableHistoricoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableHistoricoMouseClicked
+        
+    }//GEN-LAST:event_tableHistoricoMouseClicked
 
     /**
      * @param args the command line arguments
@@ -133,9 +158,11 @@ public class UserTelaHistorico extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnRenovar;
     private javax.swing.JButton btnVoltar;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tableHistorico;
+    private javax.swing.JTextField txtAutorH;
+    private javax.swing.JTextField txtIdH;
+    private javax.swing.JTextField txtTituloH;
     // End of variables declaration//GEN-END:variables
 }

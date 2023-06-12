@@ -19,7 +19,7 @@ import javax.swing.JTextField;
 public class ContadorRegistros {
     
     public static int contarRegistros(String nomeTabela) {
-        String url = "jdbc:mysql://localhost:3306/db_mylibrary";
+        String url = "jdbc:mysql://localhost:3306/db_library";
         String usuario = "root";
         String senha = "1234";
 

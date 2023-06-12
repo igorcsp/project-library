@@ -9,7 +9,7 @@ public class ConnectionFactory {
     Connection conectar;
     private static final String usuario = "root";
     private static final String senha = "1234";
-    private static final String bd = "db_mylibrary";
+    private static final String bd = "db_library";
     private static final String host = "localhost";
     private static final String porta = "3306";
     

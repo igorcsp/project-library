@@ -6,6 +6,7 @@ package Telas;
 
 import Classes.GerenciamentoLivros;
 import Classes.GerenciamentoLivrosDeInteresse;
+import Classes.ReservarLivro;
 import Classes.Usuario;
 import Classes.ValidaLogin;
 import Telas.LoginTela;
@@ -165,8 +166,8 @@ public class UserTelaMenuUsuario extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(75, 75, 75)
                 .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(124, 124, 124)
-                .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(59, 59, 59)
+                .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -193,7 +194,9 @@ public class UserTelaMenuUsuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnHistoricoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistoricoActionPerformed
-        JOptionPane.showMessageDialog(null, "Em manutenção.");
+        UserTelaHistorico uth = new UserTelaHistorico();
+        uth.setVisible(true);
+        this.dispose();
 
     }//GEN-LAST:event_btnHistoricoActionPerformed
 
@@ -208,21 +211,24 @@ public class UserTelaMenuUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLivrosDeInteresseActionPerformed
 
     private void btnReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservarActionPerformed
-        JOptionPane.showMessageDialog(null, "Em manutenção.");
+        ReservarLivro rl = new ReservarLivro();
+        rl.reservar(tableConsultaLivros, txtId);
+        GerenciamentoLivros gl = new GerenciamentoLivros();
+        gl.mostrarLivros(tableConsultaLivros);
     }//GEN-LAST:event_btnReservarActionPerformed
 
     private void btnIncluirListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirListaActionPerformed
         GerenciamentoLivrosDeInteresse gli = new GerenciamentoLivrosDeInteresse();
-        Usuario usuario = new Usuario();
-        gli.inserirLivros(tableConsultaLivros, txtTitulo, txtAutor, usuario.getCpf());
+        gli.inserirLivros(tableConsultaLivros, txtTitulo, txtAutor);
     }//GEN-LAST:event_btnIncluirListaActionPerformed
 
     private void tableConsultaLivrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableConsultaLivrosMouseClicked
-        
+        ReservarLivro rl = new ReservarLivro();
+        rl.selecionarLivros(tableConsultaLivros, txtId);
     }//GEN-LAST:event_tableConsultaLivrosMouseClicked
 
     private void txtCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCpfActionPerformed
-        
+
     }//GEN-LAST:event_txtCpfActionPerformed
 
     /**

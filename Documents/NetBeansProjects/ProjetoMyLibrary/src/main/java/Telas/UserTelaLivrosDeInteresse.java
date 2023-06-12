@@ -22,10 +22,8 @@ public class UserTelaLivrosDeInteresse extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         
-        Usuario usuario = new Usuario();
-        
         GerenciamentoLivrosDeInteresse gli = new GerenciamentoLivrosDeInteresse();
-        gli.mostrarLivros(tableLivrosDeInteresse, usuario.getCpf());
+        gli.mostrarLivros(tableLivrosDeInteresse);
         
         txtIdLivrosDeInteresse.setVisible(false);
         txtTituloLivrosDeInteresse.setVisible(false);
@@ -161,9 +159,8 @@ public class UserTelaLivrosDeInteresse extends javax.swing.JFrame {
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         GerenciamentoLivrosDeInteresse gli = new GerenciamentoLivrosDeInteresse();
-        Usuario usuario = new Usuario();
-        gli.excluirLivros(txtIdLivrosDeInteresse, usuario.getCpf());
-        gli.mostrarLivros(tableLivrosDeInteresse, usuario.getCpf());
+        gli.excluirLivros(txtIdLivrosDeInteresse);
+        gli.mostrarLivros(tableLivrosDeInteresse);
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void tableLivrosDeInteresseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableLivrosDeInteresseMouseClicked

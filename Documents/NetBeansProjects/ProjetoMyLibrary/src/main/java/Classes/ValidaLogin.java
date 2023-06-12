@@ -20,7 +20,7 @@ public class ValidaLogin {
             PreparedStatement ps = null;
             
             ConnectionFactory.ConnectionFactory objetoConexao = new ConnectionFactory.ConnectionFactory();
-            String consulta = "select * from tb_usuarios where cpf = ? and senha = ?";
+            String consulta = "select * from tb_usuariosA where cpf = ? and senha = ?";
             ps = objetoConexao.obterConexao().prepareStatement(consulta);
             
             String senha = String.valueOf(senhaChar.getPassword());

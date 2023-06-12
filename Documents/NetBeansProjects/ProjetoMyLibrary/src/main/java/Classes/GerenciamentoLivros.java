@@ -28,7 +28,7 @@ public class GerenciamentoLivros {
         
         paramTableLivros.setModel(modelo);
         
-        sql = "SELECT * FROM tb_livros;";
+        sql = "SELECT * FROM tb_livrosA;";
         
         String [] dados = new String[6];
         
@@ -79,7 +79,7 @@ public class GerenciamentoLivros {
     
     public void inserirLivros(JTextField paramTitulo, JTextField paramAutor) {
         ConnectionFactory objConexao = new ConnectionFactory();
-        String inserir = "INSERT INTO tb_livros (titulo, autor, disponivel, reservado, emprestado_para) VALUES (?, ?, 1, 0, '')";
+        String inserir = "INSERT INTO tb_livrosA (titulo, autor, disponivel, reservado, emprestado_para) VALUES (?, ?, 1, 0, '')";
         try {
             CallableStatement cs = objConexao.obterConexao().prepareCall(inserir);
             cs.setString(1, paramTitulo.getText());
@@ -96,7 +96,7 @@ public class GerenciamentoLivros {
     
     public void modificarLivros(JTextField paramTitulo, JTextField paramAutor, JTextField paramDisponivel, JTextField paramReservado, JTextField paramEmprestado, JTextField paramId) {
         ConnectionFactory objConexao = new ConnectionFactory();
-        String modificar = "UPDATE tb_livros SET titulo=?, autor=?, disponivel =?, reservado=?, emprestado_para=? WHERE id = ?;";
+        String modificar = "UPDATE tb_livrosA SET titulo=?, autor=?, disponivel =?, reservado=?, emprestado_para=? WHERE id = ?;";
         try {
             CallableStatement cs = objConexao.obterConexao().prepareCall(modificar);
             cs.setString(1, paramTitulo.getText());
@@ -115,7 +115,7 @@ public class GerenciamentoLivros {
     
     public void excluirLivros(JTextField paramId) {
         ConnectionFactory objConexao = new ConnectionFactory();
-        String excluir = "DELETE FROM tb_livros WHERE id=?;";
+        String excluir = "DELETE FROM tb_livrosA WHERE id=?;";
         try {
             CallableStatement cs = objConexao.obterConexao().prepareCall(excluir);
             cs.setInt(1, Integer.parseInt(paramId.getText()));

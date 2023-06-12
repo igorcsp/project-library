@@ -31,7 +31,7 @@ public class GerenciamentoUsuarios {
         
         paramTableUsuarios.setModel(modelo);
         
-        sql = "SELECT * FROM tb_usuarios;";
+        sql = "SELECT * FROM tb_usuariosA;";
         
         String [] dados = new String[8];
         
@@ -85,7 +85,7 @@ public class GerenciamentoUsuarios {
     
     public void modificarUsuarios(JTextField paramCpf, JTextField paramNome, JPasswordField paramSenha, JTextField paramTelefone, JTextField paramEmail, JTextField paramEndereco, JTextField paramComplemento, JTextField paramId) {
         ConnectionFactory objConexao = new ConnectionFactory();
-        String modificar = "UPDATE tb_usuarios SET cpf = ?, nome = ?, senha=?, telefone=?, email=?, endereco=?, complemento=? WHERE id = ?;";
+        String modificar = "UPDATE tb_usuariosA SET cpf = ?, nome = ?, senha=?, telefone=?, email=?, endereco=?, complemento=? WHERE id = ?;";
         try {
             CallableStatement cs = objConexao.obterConexao().prepareCall(modificar);
             cs.setString(1, paramCpf.getText());
@@ -105,7 +105,7 @@ public class GerenciamentoUsuarios {
     
     public void excluirUsuarios(JTextField paramId, JTextField paramCpf) {
         ConnectionFactory objConexao = new ConnectionFactory();
-        String excluir = "DELETE FROM tb_usuarios WHERE id=?;";
+        String excluir = "DELETE FROM tb_usuariosA WHERE id=?;";
         
         PreparedStatement ss = null;
         
@@ -113,11 +113,6 @@ public class GerenciamentoUsuarios {
             CallableStatement cs = objConexao.obterConexao().prepareCall(excluir);
             cs.setInt(1, Integer.parseInt(paramId.getText()));
             cs.execute();
-            
-            String var = paramCpf.getText();
-            String tabelaNova = String.format("drop table tb_livrosDeInteresse%s;", var);
-            ss = objConexao.obterConexao().prepareStatement(tabelaNova);
-            ss.execute();
         
             JOptionPane.showMessageDialog(null, "Linha excluída com sucesso!");
         } catch (Exception e) {
