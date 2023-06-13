@@ -1,5 +1,6 @@
 package Classes;
 
+import ConnectionFactory.ConnectionFactory;
 import Telas.AdmTelaMenuAdministrador;
 import Telas.LoginTela;
 import Telas.UserTelaMenuUsuario;
@@ -22,7 +23,7 @@ public class ContadorRegistros {
         String url = "jdbc:mysql://localhost:3306/db_library";
         String usuario = "root";
         String senha = "1234";
-
+       
         try (Connection conexao = DriverManager.getConnection(url, usuario, senha);
              Statement statement = conexao.createStatement()) {
 
