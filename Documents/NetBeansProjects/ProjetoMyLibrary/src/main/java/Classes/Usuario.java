@@ -18,11 +18,9 @@ public class Usuario {
     private static int contador;
     
     public static int achaId(String paramCpf) {
-        String url = "jdbc:mysql://localhost:3306/db_library";
-        String usuario = "root";
-        String senha = "1234";
+        ConnectionFactory conn = new ConnectionFactory();
 
-        try (Connection conexao = DriverManager.getConnection(url, usuario, senha);
+        try (Connection conexao = DriverManager.getConnection(conn.getUrl(), conn.getUsuario(), conn.getSenha());
              Statement statement = conexao.createStatement()) {
             
             String achaId = "SELECT id FROM tb_usuariosA WHERE cpf = " + paramCpf;
