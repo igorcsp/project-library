@@ -1,5 +1,6 @@
 package Classes;
 
+import ConnectionFactory.ConnectionFactory;
 import Telas.AdmTelaMenuAdministrador;
 import Telas.LoginTela;
 import Telas.UserTelaMenuUsuario;
@@ -19,11 +20,9 @@ import javax.swing.JTextField;
 public class ContadorRegistros {
     
     public static int contarRegistros(String nomeTabela) {
-        String url = "jdbc:mysql://localhost:3306/db_library";
-        String usuario = "root";
-        String senha = "1234";
-
-        try (Connection conexao = DriverManager.getConnection(url, usuario, senha);
+        ConnectionFactory conn = new ConnectionFactory();
+       
+        try (Connection conexao = DriverManager.getConnection(conn.getUrl(), conn.getUsuario(), conn.getSenha());
              Statement statement = conexao.createStatement()) {
 
             String sql = "SELECT COUNT(*) AS total FROM " + nomeTabela;

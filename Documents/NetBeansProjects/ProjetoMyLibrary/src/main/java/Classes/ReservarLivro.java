@@ -13,11 +13,9 @@ import javax.swing.JTextField;
 
 public class ReservarLivro {
     public static int checaReservado(int paramId) { 
-        String url = "jdbc:mysql://localhost:3306/db_library";
-        String usuario = "root";
-        String senha = "1234";
+        ConnectionFactory conn = new ConnectionFactory();
 
-        try (Connection conexao = DriverManager.getConnection(url, usuario, senha);
+        try (Connection conexao = DriverManager.getConnection(conn.getUrl(), conn.getUsuario(), conn.getSenha());
              Statement statement = conexao.createStatement()) {
             
             String achaId = "select reservado from tb_livrosa where id = " + paramId;

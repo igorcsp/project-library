@@ -161,10 +161,7 @@ public class LoginTela extends javax.swing.JFrame {
         Usuario usuario = new Usuario();
         usuario.setCpf(txtCpfLogin.getText());
         
-        
         cl.validaUsuario(txtCpfLogin, txtSenhaLogin);
-        
-        
         
         txtCpfLogin.setText("");
         txtSenhaLogin.setText("");
