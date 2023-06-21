@@ -1,7 +1,5 @@
 # project-library
 
-colocar comandos no Workbench e mudar a senha na connectionfactory conforme vc configurou que deve funcionar
-
 create database db_library;
 use db_library;
 
