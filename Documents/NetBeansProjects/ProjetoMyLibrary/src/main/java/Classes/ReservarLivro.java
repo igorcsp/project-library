@@ -12,25 +12,25 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 
 public class ReservarLivro {
-    public static int checaReservado(int paramId) { 
-        ConnectionFactory conn = new ConnectionFactory();
-
-        try (Connection conexao = DriverManager.getConnection(conn.getUrl(), conn.getUsuario(), conn.getSenha());
-             Statement statement = conexao.createStatement()) {
-            
-            String achaId = "select reservado from tb_livrosa where id = " + paramId;
-            ResultSet resultSet = statement.executeQuery(achaId);
-
-            if (resultSet.next()) {
-                return resultSet.getInt("reservado");
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return 0;
-    }
+//    public static int checaReservado(int paramId) { 
+//        ConnectionFactory conn = new ConnectionFactory();
+//
+//        try (Connection conexao = DriverManager.getConnection(conn.getUrl(), conn.getUsuario(), conn.getSenha());
+//             Statement statement = conexao.createStatement()) {
+//            
+//            String achaId = "select reservado from tb_livrosa where id = " + paramId;
+//            ResultSet resultSet = statement.executeQuery(achaId);
+//
+//            if (resultSet.next()) {
+//                return resultSet.getInt("reservado");
+//            }
+//
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//
+//        return 0;
+//    }
     public void reservar(JTable paramTableLivros, JTextField paramId) {
         ConnectionFactory objConexao = new ConnectionFactory();
         Usuario usuario = new Usuario();
