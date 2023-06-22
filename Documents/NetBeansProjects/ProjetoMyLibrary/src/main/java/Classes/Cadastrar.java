@@ -17,12 +17,6 @@ public class Cadastrar {
 
             String inserir = "insert into tb_usuariosA (cpf, nome, senha, telefone, email, endereco, complemento)values (?, ?, ?, ?, ?, ?, ?);";
             ps = objetoConexao.obterConexao().prepareStatement(inserir);
-            // 
-
-//            String var = cpf.getText();
-//            String tabelaNova = String.format("create table tb_livrosDeInteresse%s (`id` int not null auto_increment, `titulo` varchar(45) not null, `autor` varchar(45) not null, PRIMARY KEY(id));", var);
-//            ss = objetoConexao.obterConexao().prepareStatement(tabelaNova);
-//            ss.execute();
 
             String senha = String.valueOf(senhaChar.getPassword());
 
@@ -41,7 +35,7 @@ public class Cadastrar {
             tcu.dispose();
         
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "segue erro: " + e.toString());
+            JOptionPane.showMessageDialog(null, "Erro! Favor informe com informações corretas os campos obrigatórios. Segue erro: " + e.toString());
         }
     }
 }

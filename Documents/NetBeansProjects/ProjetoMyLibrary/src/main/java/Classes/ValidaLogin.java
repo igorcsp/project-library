@@ -33,7 +33,7 @@ public class ValidaLogin {
             if (rs.next()) {
                 LoginTela tl = new LoginTela();
                 if(senha.equals("admin")) {
-                    JOptionPane.showMessageDialog(null, "Bem vindo, administrador!");
+                    JOptionPane.showMessageDialog(null, "Seja bem vindo, Admin!”");
                     AdmTelaMenuAdministrador tma = new AdmTelaMenuAdministrador();
                     tma.setVisible(true);
                     tl.dispose(); 

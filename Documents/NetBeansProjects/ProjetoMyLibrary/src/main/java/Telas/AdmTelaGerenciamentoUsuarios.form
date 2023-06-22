@@ -87,27 +87,26 @@
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="btnLimpar" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="txtIdGerenc" min="-2" pref="92" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="txtNomeGerenc" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtCpfGerenc" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="txtComplementoGerenc" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtEnderecoGerenc" max="32767" attributes="0"/>
-                                      <Component id="txtEmailGerenc" max="32767" attributes="0"/>
-                                      <Component id="txtTelefoneGerenc" max="32767" attributes="0"/>
-                                      <Component id="txtSenhaGerenc" alignment="1" max="32767" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="txtNomeGerenc" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtCpfGerenc" alignment="1" max="32767" attributes="0"/>
+                              <Component id="txtComplementoGerenc" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtEnderecoGerenc" max="32767" attributes="0"/>
+                              <Component id="txtEmailGerenc" max="32767" attributes="0"/>
+                              <Component id="txtTelefoneGerenc" max="32767" attributes="0"/>
+                              <Component id="txtSenhaGerenc" alignment="1" max="32767" attributes="0"/>
                           </Group>
+                          <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                  <Component id="btnLimpar" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="txtIdGerenc" min="-2" pref="92" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="jLabel9" min="-2" pref="74" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -153,6 +152,7 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="txtIdGerenc" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
                       <Component id="btnLimpar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel9" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="btnIncluirGerenc" min="-2" max="-2" attributes="0"/>
@@ -163,7 +163,7 @@
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="btnVoltarGerenc" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="35" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -266,6 +266,13 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLimparActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel9">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="2" name="C:\Users\Igor\Documents\NetBeansProjects\ProjetoMyLibrary\src\main\java\resources\unnamed.png"/>
+            </Property>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
